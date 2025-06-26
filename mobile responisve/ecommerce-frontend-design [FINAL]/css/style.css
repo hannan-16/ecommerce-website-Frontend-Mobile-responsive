@@ -1,0 +1,2142 @@
+/*
+====================================================================
+  GLOBAL / BASE STYLES
+  These styles apply to the entire website, no matter which page you are on.
+  Think of them as the fundamental look and feel for desktop.
+====================================================================
+*/
+
+/* Reset & Base Styles: Applies to ALL HTML pages (index.html, product.html, product-details.html, cart.html) */
+/* This section ensures consistent styling across all browsers by resetting default margins/paddings and setting basic font styles. */
+* {
+    margin: 0; /* Removes default outer spacing from all elements */
+    padding: 0; /* Removes default inner spacing from all elements */
+    box-sizing: border-box; /* Makes sure padding and border are included in the element's total width and height */
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Sets the default font for the entire page */
+    background-color: #ffffff; /* Sets the background color of the page to white */
+    color: #333; /* Sets the default text color to a dark grey */
+    line-height: 1.6; /* Sets the spacing between lines of text */
+    font-size: 16px; /* Base font size for desktop - all 'em' units will scale from this */
+}
+
+a {
+    text-decoration: none; /* Removes the underline from all links */
+    color: #007bff; /* Sets the default color of links to blue */
+    transition: color 0.3s ease; /* Smooth color change when hovering over links */
+}
+
+a:hover {
+    color: #0056b3; /* Changes link color to a darker blue when hovered */
+}
+
+/* General Button Style: Applies to buttons across all pages */
+.button {
+    display: inline-block; /* Makes the button act like a text element but allows width/height */
+    background-color: #007bff; /* Sets the background color of buttons to blue */
+    color: #fff; /* Sets the text color inside buttons to white */
+    padding: 12px 20px; /* Adds inner spacing to the button */
+    border-radius: 5px; /* Rounds the corners of the button */
+    text-decoration: none; /* Removes underline (if button is a link) */
+    font-weight: 600; /* Makes button text bold */
+    transition: background-color 0.3s ease; /* Smooth background color change on hover */
+    border: none; /* Removes border from buttons */
+    cursor: pointer; /* Shows a hand cursor when hovering over buttons */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker blue background when button is hovered */
+}
+
+/* General Container Style: Applies to main content areas on most pages */
+/* This helps center content and set a maximum width for readability. */
+.container {
+    width: 90%; /* Sets the width to 90% of its parent */
+    max-width: 1200px; /* Limits the maximum width to 1200 pixels */
+    margin: 0 auto; /* Centers the container horizontally on the page */
+    padding: 0 20px; /* Added horizontal padding for content within the container on desktop */
+}
+
+
+/*
+====================================================================
+  HEADER SECTION STYLES - DESKTOP
+  These styles are for the top part of your website, which usually
+  appears on every page.
+  Likely used on: index.html, product.html, product-details.html, cart.html
+====================================================================
+*/
+
+/* Top Navigation Bar (Smaller bar above the main header) */
+.top-navigation.centered {
+  background-color: #fff; /* White background */
+  padding: 10px 20px; /* Inner spacing */
+  display: flex; /* Uses Flexbox for layout */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  border-bottom: 1px solid #eee; /* Light grey line at the bottom */
+  font-size: 0.9em; /* Slightly smaller text size */
+}
+
+.top-navigation.centered .nav-items {
+  display: flex; /* Uses Flexbox for navigation links */
+  align-items: center; /* Aligns items vertically */
+  gap: 15px; /* Space between navigation items */
+}
+
+.top-navigation.centered .right-actions {
+  display: flex; /* Uses Flexbox for action items (like language, ship to) */
+  align-items: center; /* Aligns items vertically */
+  gap: 20px; /* Space between action items */
+}
+
+/* Specific styles for elements within the Top Navigation */
+.top-navigation.centered .nav-items button.category-menu {
+  background: none; /* No background color */
+  border: none; /* No border */
+  display: flex; /* Uses Flexbox for icon and text inside button */
+  align-items: center; /* Aligns icon and text vertically */
+  gap: 5px; /* Space between icon and text */
+  cursor: pointer; /* Shows hand cursor on hover */
+  padding: 15px 10px; /* Inner spacing */
+  border-radius: 5px; /* Rounds corners */
+  transition: background-color 0.3s ease; /* Smooth background change on hover */
+}
+
+.top-navigation.centered .nav-items button.category-menu:hover {
+  background-color: #f8f9fa; /* Light grey background on hover */
+}
+
+.top-navigation.centered .nav-items button.category-menu i {
+  font-size: 1.1em; /* Adjusts icon size */
+}
+
+.top-navigation.centered .nav-items a {
+  text-decoration: none; /* Removes underline */
+  color: #333; /* Dark grey text */
+  padding: 8px 10px; /* Inner spacing */
+  border-radius: 5px; /* Rounds corners */
+  transition: background-color 0.3s ease; /* Smooth background change on hover */
+}
+
+.top-navigation.centered .nav-items a:hover {
+  background-color: #f8f9fa; /* Light grey background on hover */
+}
+
+.top-navigation.centered .nav-items .dropdown {
+  position: relative; /* Allows dropdown menu to be positioned relative to this */
+}
+
+.top-navigation.centered .nav-items .dropdown-toggle {
+  background: none; /* No background */
+  border: none; /* No border */
+  display: flex; /* Uses Flexbox */
+  align-items: center; /* Centers items vertically */
+  gap: 5px; /* Space between items */
+  cursor: pointer; /* Hand cursor */
+  padding: 8px 10px; /* Inner spacing */
+  border-radius: 5px; /* Rounds corners */
+  transition: background-color 0.3s ease; /* Smooth background change */
+}
+
+.top-navigation.centered .nav-items .dropdown-toggle:hover {
+  background-color: #f8f9fa; /* Light grey background on hover */
+}
+
+.top-navigation.centered .nav-items .dropdown-toggle i {
+  font-size: 0.8em; /* Adjusts icon size */
+}
+
+.top-navigation.centered .nav-items .dropdown-menu {
+  position: absolute; /* Positions the dropdown menu precisely */
+  top: 100%; /* Places it directly below the dropdown toggle */
+  left: 0; /* Aligns it to the left of the toggle */
+  background-color: #fff; /* White background */
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 5px; /* Rounds corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  padding: 10px 0; /* Inner spacing */
+  display: none; /* Hidden by default */
+  z-index: 10; /* Ensures it appears above other content */
+}
+
+.top-navigation.centered .nav-items .dropdown:hover .dropdown-menu {
+  display: block; /* Shows the dropdown menu when its parent is hovered */
+}
+
+.top-navigation.centered .nav-items .dropdown-menu a {
+  display: block; /* Makes each menu item a block-level link */
+  padding: 8px 15px; /* Inner spacing */
+  text-decoration: none; /* Removes underline */
+  color: #333; /* Dark grey text */
+  transition: background-color 0.3s ease; /* Smooth background change */
+}
+
+.top-navigation.centered .nav-items .dropdown-menu a:hover {
+  background-color: #f8f9fa; /* Light grey background on hover */
+}
+
+.top-navigation.centered .right-actions .language-currency,
+.top-navigation.centered .right-actions .ship-to {
+  display: flex; /* Uses Flexbox */
+  align-items: center; /* Centers items vertically */
+  gap: 5px; /* Space between items */
+  cursor: pointer; /* Hand cursor */
+  padding: 8px 10px; /* Inner spacing */
+  border-radius: 5px; /* Rounds corners */
+  transition: background-color 0.3s ease; /* Smooth background change */
+}
+
+.top-navigation.centered .right-actions .language-currency:hover,
+.top-navigation.centered .right-actions .ship-to:hover {
+  background-color: #f8f9fa; /* Light grey background on hover */
+}
+
+.top-navigation.centered .right-actions .language-currency i,
+.top-navigation.centered .right-actions .ship-to i {
+  font-size: 0.8em; /* Adjusts icon size */
+}
+
+.top-navigation.centered .right-actions .ship-to img {
+  width: 50px; /* Sets flag image width */
+  height: 20px; /* Sets flag image height */
+  vertical-align: middle; /* Aligns image vertically with text */
+}
+
+
+/* Main Site Header (Below the Top Navigation) */
+.site-header {
+    background-color: #fff; /* White background */
+    padding: 15px 0; /* Reduced vertical padding for a smaller header */
+    border-bottom: 1px solid #eee; /* Light grey line at the bottom */
+    position: sticky; /* Makes the header stick to the top when scrolling */
+    top: 0; /* Sticks to the very top */
+    z-index: 100; /* Ensures it appears above other content */
+}
+
+.header-container {
+    display: flex; /* Uses Flexbox for logo, search, and main menu */
+    align-items: center; /* Aligns items vertically */
+    justify-content: space-between; /* Distributes space between elements */
+    gap: 15px; /* Reduced space between logo, search, and menu */
+    flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+}
+
+.logo-link {
+    display: inline-block; /* Makes the logo link behave like an inline block */
+    margin-right: 15px; /* Adjust if needed based on new gap */
+}
+
+.logo {
+    height: 60px; /* Adjusted logo size from 80px */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Search Bar in Header */
+/* Note: There are duplicate .search-container and .search-bar definitions.
+   The second set below seems more specific for the combined search input/dropdown/button.
+   It's recommended to consolidate these. I'll keep them as is for now but highlight the duplication. */
+
+/* General search container and bar styling (for header) */
+.search-container {
+    flex: 1; /* Allows the search bar to grow and shrink */
+    display: flex; /* Uses Flexbox for search input and buttons */
+    align-items: center; /* Aligns items vertically */
+    max-width: 450px; /* Reduced max-width for the search area */
+}
+
+.search-bar {
+    flex: 1; /* Allows the search input to grow and shrink */
+    padding: 8px 12px; /* Reduced padding */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Rounds corners */
+    font-size: 14px; /* Reduced font size */
+    font-family: 'Inter', sans-serif; /* Font family */
+    color: #333; /* Text color */
+    margin-right: 5px; /* Space to the right of the input (for desktop) */
+}
+
+.search-bar::placeholder {
+    color: #999; /* Color of placeholder text in search bar */
+}
+
+/* Specific search components (if they are separate from the main search-bar input) */
+.category-dropdown {
+    padding: 8px 12px; /* Reduced padding */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 0; /* No rounded corners */
+    font-size: 14px; /* Reduced font size */
+    font-family: 'Inter', sans-serif; /* Font family */
+    color: #333; /* Text color */
+    background-color: #fff; /* White background */
+    cursor: pointer; /* Hand cursor */
+    margin-right: 5px; /* Space between dropdown and button */
+}
+
+.search-button {
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    padding: 8px 12px; /* Reduced padding */
+    border: none; /* No border */
+    border-radius: 0 4px 4px 0; /* Rounds only right corners */
+    font-weight: 600; /* Bold text */
+    cursor: pointer; /* Hand cursor */
+    transition: background-color 0.3s ease; /* Smooth background change */
+    font-size: 0.9em; /* Adjusted font size */
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* Darker blue background on hover */
+}
+
+/* Main Menu (Icons + Text like Cart, Profile) */
+.menu {
+    display: flex; /* Uses Flexbox for menu items */
+    gap: 20px; /* Reduced space between menu items */
+    align-items: center; /* Centers items vertically */
+}
+
+.menu a {
+    display: flex; /* Uses Flexbox for icon and text inside link */
+    flex-direction: column; /* Stacks icon and text vertically */
+    align-items: center; /* Centers icon and text horizontally */
+    gap: 3px; /* Reduced vertical space between icon and text */
+    font-weight: 500; /* Medium bold text */
+    color: #333; /* Dark grey text */
+    text-align: center; /* Centers text within the link */
+    font-size: 0.8em; /* Reduced text size for menu items */
+}
+
+.menu a:hover {
+    color: #007bff; /* Blue text on hover */
+}
+.nav-icon {
+    height: 30px; /* Reduced icon height */
+    width: 30px; /* Reduced icon width */
+}
+
+
+/*
+====================================================================
+  MAIN CONTENT SECTIONS - DESKTOP
+  These styles are for the main body of your website. Some sections
+  are likely on the homepage (index.html), while others might be
+  shared or specific to product/category pages.
+====================================================================
+*/
+.site-main {
+    padding: 40px 0; /* General vertical spacing for main content areas */
+}
+
+/* Hero Section (A simple hero block often found on the homepage after the main header) */
+/* Likely used on: index.html */
+.hero {
+    text-align: center; /* Centers all content inside */
+    padding: 80px 0; /* Vertical spacing */
+    background-color: #e0f7fa; /* Light blue background */
+    border-radius: 8px; /* Rounds corners */
+    margin-bottom: 30px; /* Space below this section */
+}
+
+.hero h1 {
+    font-size: 2.5em; /* Large heading size */
+    margin-bottom: 20px; /* Space below heading */
+    color: #333; /* Dark grey text */
+}
+
+.hero p {
+    font-size: 1.1em; /* Paragraph text size */
+    color: #666; /* Medium grey text */
+    margin-bottom: 30px; /* Space below paragraph */
+}
+
+.hero .button {
+    margin-top: 20px; /* Space above button */
+}
+
+/* Main Hero Section (Large banner with sidebar and right panel) */
+/* Likely used on: index.html */
+.main-hero {
+  padding: 20px 0; /* Vertical spacing of the section */
+  background-color: white; /* White background for the whole section */
+}
+
+.container-hero {
+  display: flex; /* Uses Flexbox for the layout of sidebar, hero banner, and right panel */
+  gap: 20px; /* Space between the main columns */
+  max-width: 1200px; /* Limits the maximum width */
+  margin: 0 auto; /* Centers the inner container */
+  padding: 40px 20px; /* Inner padding */
+  background-color: #fff; /* White background */
+  border-radius: 8px; /* Optional rounded corners */
+  overflow: hidden; /* To contain floated elements or rounded corners */
+}
+
+/* Sidebar (Left-hand category list) */
+/* Likely used on: index.html, product.html */
+.sidebar {
+  flex: 0.8; /* Adjust flex-grow to control width relative to other sections */
+  max-width: 180px; /* Adjust maximum width as needed */
+}
+
+.category-list {
+  list-style: none; /* Removes bullet points from list */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 8px; /* Rounds corners */
+  overflow: hidden; /* Hides content that overflows - changed to visible for mobile by media query */
+}
+
+.category-list li a {
+  display: block; /* Makes each link fill its container */
+  padding: 12px 16px; /* Inner spacing */
+  border-bottom: 1px solid #eee; /* Light grey line below each item */
+  color: #333; /* Dark grey text */
+  text-decoration: none; /* Removes underline */
+  transition: background 0.3s; /* Smooth background change */
+  font-size: 0.9em; /* Slightly smaller text size */
+}
+
+.category-list li a:hover {
+  background-color: #f2f2f2; /* Light grey background on hover */
+}
+
+/* Hero Banner (Large central image with text) */
+/* Likely used on: index.html */
+.hero-banner {
+  flex: 2; /* Takes up a larger portion of space */
+  position: relative; /* To allow absolute positioning of other elements if needed later */
+  background-image: url('../assets/images/headphones.png'); /* Set the background image */
+  background-size: cover; /* Scale the image to cover the entire banner */
+  background-position: center; /* Center the image within the banner */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  border-radius: 10px; /* Rounds corners */
+  padding: 30px; /* Inner spacing */
+  display: flex; /* Use flexbox for overlaying content */
+  align-items: center; /* Vertically align content */
+  justify-content: flex-start; /* Align text to the start (left) */
+  color: white; /* Set default text color to white for better contrast */
+}
+
+.hero-content {
+  flex: 1; /* Allow text content to take up available space */
+  margin-right: 20px; /* Add some spacing between text and image */
+}
+
+.hero-content h2 {
+  font-size: 24px; /* Heading size */
+  color: #222; /* Darker grey text */
+  margin-bottom: 10px; /* Space below heading */
+  line-height: 1.2; /* Improve readability of multi-line text */
+}
+
+.btn-learn {
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 18px; /* Inner spacing */
+  border-radius: 5px; /* Rounds corners */
+  cursor: pointer; /* Hand cursor */
+  font-size: 0.95em; /* Text size */
+  margin-top: 15px; /* Space above button */
+}
+
+/* Right Side Panel (User, Coupon, Quote boxes) */
+/* Likely used on: index.html */
+/* Consolidated styles for Right Side Panel elements */
+.right-panel {
+  flex: 1; /* Takes up flexible space */
+  display: flex; /* Uses Flexbox */
+  flex-direction: column; /* Stacks items vertically */
+  gap: 15px; /* Space between boxes */
+}
+.user-box{
+  background: lightblue; /* Light blue background */
+  padding: 28px; /* Inner spacing */
+  border-radius: 10px; /* Rounds corners */
+  font-size: 14px; /* Text size */
+  text-align: center; /* Centers text */
+}
+
+.coupon-box{
+  background: orange; /* Orange background */
+  padding: 30px; /* Inner spacing */
+  border-radius: 10px; /* Rounds corners */
+  font-size: 14px; /* Text size */
+  text-align: center; /* Centers text */
+}
+.quote-box {
+  background: cornflowerblue; /* Cornflower blue background */
+  padding: 30px; /* Inner spacing */
+  border-radius: 10px; /* Rounds corners */
+  font-size: 14px; /* Text size */
+  text-align: center; /* Centers text */
+}
+
+.btn-primary { /* General primary button */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 8px 12px; /* Inner spacing */
+  border-radius: 4px; /* Rounds corners */
+  margin-top: 10px; /* Space above button */
+}
+
+.btn-primary1 { /* A slightly different primary button style */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 2px 2px; /* Very small inner spacing */
+  border-radius: 4px; /* Rounds corners */
+  margin-top: 10px; /* Space above button */
+  font-size: 0.85em; /* Text size */
+}
+
+.btn-outline { /* Outlined button style */
+  background-color: white; /* White background */
+  color: #007bff; /* Blue text */
+  border: 1px solid #007bff; /* Blue border */
+  padding: 8px 12px; /* Inner spacing */
+  border-radius: 4px; /* Rounds corners */
+  margin-top: 5px; /* Space above button */
+}
+
+.hero-image { /* Likely an image within one of the right-panel boxes */
+  max-width: 50px; /* Limits image width */
+  height: auto; /* Maintains aspect ratio */
+}
+
+/* Featured Products Section */
+/* Likely used on: index.html, product.html */
+.featured-products {
+    margin-bottom: 40px; /* Space below this section */
+}
+
+.featured-products h2 {
+    font-size: 2em; /* Heading size */
+    margin-bottom: 25px; /* Space below heading */
+    color: #007bff; /* Blue heading text */
+    text-align: center; /* Centers the heading */
+}
+
+.product-grid { /* Generic product grid style, used in multiple places */
+    display: grid; /* Uses CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns (at least 250px wide) */
+    gap: 20px; /* Space between product cards */
+}
+
+.product-card { /* Generic product card style, used in multiple places */
+    background-color: #fff; /* White background */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 8px; /* Rounds corners */
+    padding: 20px; /* Inner spacing */
+    text-align: center; /* Centers content inside the card */
+}
+
+.product-card img {
+    max-width: 100%; /* Image won't exceed card width */
+    height: auto; /* Maintains aspect ratio */
+    margin-bottom: 15px; /* Space below image */
+    border-radius: 4px; /* Rounds image corners */
+    object-fit: cover; /* Crops image to fit, maintaining aspect ratio */
+    height: 200px; /* Fixed height for product images */
+}
+
+.product-card h3 {
+    font-size: 1.2em; /* Product name font size */
+    margin-bottom: 10px; /* Space below product name */
+    color: #333; /* Dark grey text */
+}
+
+.product-card .price {
+    font-size: 1.1em; /* Price font size */
+    color: #007bff; /* Blue price text */
+    font-weight: bold; /* Bold price text */
+    margin-bottom: 15px; /* Space below price */
+}
+
+.product-card .button {
+    margin-top: 10px; /* Space above the button */
+    font-size: 0.9em; /* Button text size */
+    padding: 10px 15px; /* Button inner spacing */
+}
+
+/* Product Categories Section */
+/* Likely used on: index.html, product.html */
+.product-categories {
+    margin-bottom: 40px; /* Space below this section */
+}
+
+.product-categories h2 {
+    font-size: 2em; /* Heading size */
+    margin-bottom: 25px; /* Space below heading */
+    color: #007bff; /* Blue heading text */
+    text-align: center; /* Centers the heading */
+}
+
+.category-grid {
+    display: grid; /* Uses CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns (at least 200px wide) */
+    gap: 20px; /* Space between category cards */
+}
+
+.category-card {
+    background-color: #fff; /* White background */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 8px; /* Rounds corners */
+    padding: 15px; /* Inner spacing */
+    text-align: center; /* Centers content inside the card */
+}
+
+.category-card img {
+    max-width: 100%; /* Image won't exceed card width */
+    height: auto; /* Maintains aspect ratio */
+    margin-bottom: 10px; /* Space below image */
+    border-radius: 4px; /* Rounds image corners */
+    object-fit: cover; /* Crops image to fit */
+    height: 150px; /* Fixed height for category images */
+}
+
+.category-card h3 {
+    font-size: 1.1em; /* Category name font size */
+    margin-bottom: 5px; /* Space below name */
+    color: #333; /* Dark grey text */
+}
+
+.category-card .discount,
+.category-card .price {
+    color: #d9534f; /* Red color for discount/price */
+    font-weight: bold; /* Bold text */
+}
+
+/* Specific styles for the "Home & Outdoor" category card (likely a special, larger card) */
+.category-card.home-outdoor {
+    text-align: left; /* Aligns text to the left */
+}
+
+.category-card.home-outdoor h3 {
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.category-card.home-outdoor .source-now {
+    color: #007bff; /* Blue text */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 15px; /* Space below */
+}
+
+.category-card.home-outdoor .subcategory-grid {
+    display: grid; /* Uses CSS Grid for subcategories */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns for subcategories */
+    gap: 10px; /* Space between subcategory items */
+    margin-top: 10px; /* Space above subcategory grid */
+}
+
+.category-card.home-outdoor .subcategory-item {
+    text-align: center; /* Centers content */
+    padding: 10px; /* Inner spacing */
+    border: 1px solid #eee; /* Light grey border */
+    border-radius: 4px; /* Rounds corners */
+}
+
+.category-card.home-outdoor .subcategory-item h4 {
+    font-size: 0.95em; /* Subcategory heading size */
+    margin-bottom: 5px; /* Space below heading */
+    color: #555; /* Medium grey text */
+}
+
+.category-card.home-outdoor .subcategory-item img {
+    height: 80px; /* Height of subcategory images */
+}
+
+.category-card.home-outdoor .subcategory-item p {
+    font-size: 0.85em; /* Subcategory paragraph text size */
+    color: #777; /* Light grey text */
+}
+
+/* Deals and Offers Grid (Uses horizontal scrolling) */
+/* Likely used on: index.html */
+.deals-header-combined {
+    text-align: left; /* Aligns text to the left within this item */
+    margin-right: 20px; /* Add some spacing between the header and the first product */
+    flex-shrink: 0; /* Don't shrink the header */
+    width: auto; /* Adjust width as needed */
+}
+
+.deals-header-combined h3 {
+    font-size: 1.8em; /* Heading size */
+    color: #333; /* Dark grey text */
+    margin-bottom: 5px; /* Space below heading */
+}
+
+.deals-header-combined .hygiene-equipments {
+    color: #777; /* Light grey text */
+    font-size: 0.9em; /* Text size */
+    margin-bottom: 15px; /* Space below text */
+}
+
+.deals-header-combined .countdown {
+    display: flex; /* Uses Flexbox for countdown items */
+    gap: 10px; /* Space between countdown items */
+}
+
+.deals-header-combined .countdown-item {
+    background-color: #ddd; /* Light grey background */
+    color: #333; /* Dark grey text */
+    padding: 10px 15px; /* Inner spacing */
+    border-radius: 5px; /* Rounds corners */
+    text-align: center; /* Centers text */
+    font-size: 1.1em; /* Text size */
+    font-weight: bold; /* Bold text */
+}
+
+.deals-header-combined .countdown-item .label {
+    display: block; /* Makes label a block element */
+    font-size: 0.7em; /* Smaller text size */
+    font-weight: normal; /* Normal font weight */
+    color: #555; /* Medium grey text */
+    margin-top: 5px; /* Space above label */
+}
+
+.deals-grid {
+    display: flex; /* Uses Flexbox for horizontal layout */
+    flex-direction: row; /* Arranges items in a row */
+    align-items: center; /* Adjust as needed */
+    gap: 15px; /* Space between deal items */
+    overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+    padding: 20px; /* Inner spacing */
+    background-color: #f9f9f9; /* Very light grey background */
+    border-radius: 8px; /* Rounds corners */
+    border: 1px solid #eee; /* Light grey border */
+    margin-bottom: 30px; /* Space below this section */
+}
+
+.deal-item {
+    background-color: #fff; /* White background */
+    padding: 15px; /* Inner spacing */
+    border-radius: 8px; /* Rounds corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    text-align: center; /* Centers content */
+    flex-shrink: 0; /* Prevents item from shrinking */
+    width: auto; /* Automatic width */
+}
+
+.deal-item img {
+    max-width: 100%; /* Image won't exceed card width */
+    height: auto; /* Maintains aspect ratio */
+    margin-bottom: 10px; /* Space below image */
+    border-radius: 4px; /* Rounds image corners */
+    object-fit: contain; /* Scales image to fit without cropping */
+    height: 100px; /* Fixed height for deal images */
+}
+
+.deal-item h3 {
+    font-size: 1em; /* Product name font size */
+    color: #333; /* Dark grey text */
+    margin-bottom: 5px; /* Space below name */
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.deal-item .discount {
+    color: #d9534f; /* Red color for discount */
+    font-weight: bold; /* Bold text */
+    font-size: 0.9em; /* Text size */
+}
+
+/* Combined Section (Home & Outdoor block + Electronics block + Product Grid) */
+/* Likely used on: index.html */
+.combined-section {
+    margin-bottom: 40px; /* Space below this section */
+}
+
+.full-width-section {
+    width: 100%; /* Make it span the entire viewport width */
+    background-color: #f9f9f9; /* Match the background color */
+    padding: 20px 0; /* Add vertical padding to match the inner section */
+    margin-bottom: 40px; /* Keep the bottom margin */
+}
+
+.combined-container {
+    width: 90%; /* Width of the inner content */
+    max-width: 1200px; /* Maximum width */
+    margin: 0 auto; /* Centers the container */
+}
+
+.combined-layout {
+    display: flex; /* Uses Flexbox for the blocks and product grid */
+    gap: 20px; /* Spacing between the Home & Outdoor block and the product grid */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.home-outdoor-block {
+    flex: 1; /* Takes up available space on the left */
+    border-radius: 8px; /* Rounds corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    padding: 20px; /* Inner spacing */
+    text-align: left; /* Aligns text to the left */
+    background-image: url('../assets/images/home-outdoor-banner.jpg'); /* Background image */
+    background-size: cover; /* Scale the image to cover */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: white; /* Set text color to white for better contrast against the image */
+    display: flex; /* Use flexbox to arrange text content */
+    flex-direction: column; /* Stack text elements vertically */
+    justify-content: flex-end; /* Push text content to the bottom */
+    padding-bottom: 280px; /* Add some padding at the bottom for text */
+}
+.Consumer-electronics-and-gadgets{
+    flex: 1; /* Takes up available space on the left */
+    border-radius: 8px; /* Rounds corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    padding: 20px; /* Inner spacing */
+    text-align: left; /* Aligns text to the left */
+    background-image: url('../assets/images/image 102.jpg'); /* Background image */
+    background-size: cover; /* Scale the image to cover */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: white; /* Set text color to white for better contrast against the image */
+    display: flex; /* Use flexbox to arrange text content */
+    flex-direction: column; /* Stack text elements vertically */
+    justify-content: flex-end; /* Push text content to the bottom */
+    padding-bottom: 280px; /* Add some padding at the bottom for text */
+}
+.home-outdoor-block h3,
+.home-outdoor-block .source-now {
+    color: white; /* Ensure text within is white */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Optional: add a text shadow for better readability */
+}
+
+.home-outdoor-block img { /* This might be an image *within* the block, not the background */
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    object-fit: cover; /* Or contain, depending on your image */
+    max-height: 150px; /* Adjust as needed */
+}
+
+.home-outdoor-block h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.home-outdoor-block .source-now {
+    display: inline-block;
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.Consumer-electronics-and-gadgets .source-now{
+    display: inline-block;
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.product-grid-adjacent { /* Product grid next to the category blocks */
+    flex: 2; /* Takes up more space on the right for the 2x2 grid */
+    display: grid; /* Uses CSS Grid */
+    grid-template-columns: repeat(4, 1fr); /* Creates four equal columns (desktop) */
+    grid-row-gap: 15px;
+    column-gap: 15px;
+}
+
+.product-grid-adjacent .product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0px;
+    text-align: center;
+}
+
+.product-grid-adjacent .product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    object-fit: contain;
+    max-height: 100px; /* Adjust as needed */
+}
+
+.product-grid-adjacent .product-card h3 {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-grid-adjacent .product-card .price {
+    color: #777;
+    font-size: 0.9em;
+}
+
+
+/* New Hero Section (Often a call-to-action or inquiry form section) */
+/* Likely used on: index.html */
+.new-hero {
+  padding: 40px 0; /* Vertical spacing */
+  background-color: #f0f8ff; /* Light blue background */
+}
+
+.new-hero-container {
+  display: flex; /* Uses Flexbox for left content and right form */
+  justify-content: space-between; /* Distributes space between the two blocks */
+  align-items: center; /* Centers content vertically */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Centers the container */
+  padding: 20px; /* Inner spacing */
+  border-radius: 8px; /* Rounds corners */
+  background-color: #e0f7fa; /* Light blue background */
+}
+
+.hero-left-content {
+  flex: 1; /* Takes up available space on the left */
+  color: #333; /* Dark grey text */
+  padding-right: 30px; /* Space to the right of the text */
+}
+
+.hero-left-content h2 {
+  font-size: 2em; /* Heading size */
+  line-height: 1.3; /* Line spacing */
+  margin-bottom: 15px; /* Space below heading */
+}
+
+.hero-left-content p {
+  font-size: 1em; /* Paragraph text size */
+  color: #666; /* Medium grey text */
+  line-height: 1.6; /* Line spacing */
+}
+
+.hero-right-form {
+  width: 400px; /* Fixed width of the form block */
+  background-color: #fff; /* White background */
+  padding: 30px; /* Inner spacing */
+  border-radius: 10px; /* Rounds corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  text-align: left; /* Aligns text to the left */
+}
+
+.hero-right-form h3 {
+  font-size: 1.3em; /* Heading size */
+  color: #333; /* Dark grey text */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+.hero-right-form .input-group {
+  margin-bottom: 15px; /* Space below input groups */
+}
+
+.hero-right-form label {
+  display: block; /* Makes label a block element */
+  margin-bottom: 5px; /* Space below label */
+  color: #555; /* Medium grey text */
+  font-weight: bold; /* Bold text */
+  font-size: 0.9em; /* Text size */
+}
+
+.hero-right-form input[type="text"],
+.hero-right-form textarea,
+.hero-right-form input[type="number"],
+.hero-right-form select {
+  width: 100%; /* Makes input fields full width */
+  padding: 10px; /* Inner spacing */
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 4px; /* Rounds corners */
+  font-size: 1em; /* Text size */
+  font-family: 'Inter', sans-serif; /* Font family */
+  box-sizing: border-box; /* Includes padding and border in width */
+}
+
+.hero-right-form textarea {
+  min-height: 80px; /* Minimum height for text area */
+}
+
+.hero-right-form .quantity-group {
+  display: flex; /* Uses Flexbox for quantity input and select */
+  gap: 10px; /* Space between items */
+  align-items: center; /* Centers items vertically */
+}
+
+.hero-right-form .quantity-group .input-group.quantity {
+  flex: 1; /* Allows quantity input to take available space */
+}
+
+.hero-right-form .quantity-group .select-group {
+  flex: 1; /* Allows select input to take available space */
+}
+
+.hero-right-form .select-group label {
+  display: none; /* Hides the label for the select dropdown */
+}
+
+.hero-right-form .button.send-inquiry {
+  display: block; /* Makes button a block element */
+  width: 100%; /* Makes button full width */
+  margin-top: 20px; /* Space above button */
+  padding: 12px; /* Inner spacing */
+  font-size: 1em; /* Text size */
+  text-align: center; /* Centers text */
+}
+
+/* Recommended Items Section */
+/* Likely used on: index.html, product-details.html */
+.recommended-items {
+  padding: 40px 0; /* Vertical spacing */
+}
+
+.recommended-items .container {
+  width: 90%; /* Width of inner content */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Centers container */
+}
+
+.recommended-items h2 {
+  font-size: 2em; /* Heading size */
+  color: #333; /* Dark grey text */
+  margin-bottom: 25px; /* Space below heading */
+  text-align: left; /* Aligns heading to the left */
+}
+
+.recommended-items .product-grid { /* Reuses the generic product-grid style */
+  display: grid; /* Uses CSS Grid */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+  gap: 20px; /* Space between product cards */
+}
+
+.recommended-items .product-card { /* Reuses the generic product-card style */
+  background-color: #fff; /* White background */
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 8px; /* Rounds corners */
+  padding: 15px; /* Inner spacing */
+  text-align: left; /* Aligns content to the left */
+}
+
+.recommended-items .product-card img {
+  max-width: 100%; /* Max width */
+  height: auto; /* Maintains aspect ratio */
+  margin-bottom: 10px; /* Space below image */
+  border-radius: 4px; /* Rounds corners */
+  object-fit: cover; /* Scales image to cover */
+  height: 150px; /* Fixed height */
+}
+
+.recommended-items .product-card .price {
+  color: #007bff; /* Blue price text */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 5px; /* Space below price */
+  font-size: 1.1em; /* Price text size */
+}
+
+.recommended-items .product-card h3 {
+  font-size: 1em; /* Product name font size */
+  color: #333; /* Dark grey text */
+  margin-bottom: 0; /* No space below name */
+  line-height: 1.3; /* Line spacing */
+}
+
+/* Extra Services Section */
+/* Likely used on: index.html, possibly product.html or product-details.html */
+.extra-services {
+  padding: 40px 0; /* Vertical spacing */
+  background-color: #f9f9f9; /* Very light grey background */
+}
+
+.extra-services .container {
+  width: 90%; /* Width of inner content */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Centers container */
+}
+
+.extra-services h2 {
+  font-size: 2em; /* Heading size */
+  color: #333; /* Dark grey text */
+  margin-bottom: 30px; /* Space below heading */
+  text-align: left; /* Aligns heading to the left */
+}
+
+.extra-services .services-grid {
+  display: flex; /* Uses Flexbox for horizontal layout */
+  gap: 20px; /* Space between service cards */
+  overflow-x: auto; /* Enables horizontal scrolling if content overflows */
+  padding-bottom: 20px; /* Space below for scrollbar */
+}
+
+.extra-services .service-card {
+  background-color: #fff; /* White background */
+  border-radius: 8px; /* Rounds corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  min-width: 250px; /* Minimum width for each card */
+  text-align: left; /* Aligns text to the left */
+}
+
+.extra-services .service-card .image-container {
+  position: relative; /* Allows icon overlay to be positioned */
+  border-radius: 8px 8px 0 0; /* Rounds top corners */
+  overflow: hidden; /* Hides overflowing content */
+}
+
+.extra-services .service-card img {
+  display: block; /* Makes image a block element */
+  width: 100%; /* Full width */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: cover; /* Scales image to cover */
+  max-height: 150px; /* Maximum height */
+}
+
+.extra-services .service-card .icon-overlay {
+  position: absolute; /* Positions icon precisely */
+  bottom: 10px; /* 10px from the bottom */
+  right: 10px; /* 10px from the right */
+  background-color: #e0f7fa; /* Light blue background */
+  color: #007bff; /* Blue icon color */
+  width: 40px; /* Width of icon */
+  height: 40px; /* Height of icon */
+  border-radius: 50%; /* Makes it a circle */
+  display: flex; /* Uses Flexbox for icon centering */
+  justify-content: center; /* Centers icon horizontally */
+  align-items: center; /* Centers icon vertically */
+  font-size: 1.2em; /* Icon size */
+}
+
+.extra-services .service-card h3 {
+  font-size: 1.1em; /* Heading size */
+  color: #333; /* Dark grey text */
+  padding: 15px; /* Inner spacing */
+  margin-bottom: 0; /* No space below heading */
+}
+
+/* Suppliers by Region Section */
+/* Likely used on: index.html, possibly a dedicated supplier page */
+.suppliers-by-region {
+  padding: 40px 0; /* Vertical spacing */
+}
+
+.suppliers-by-region .container {
+  width: 90%; /* Width of inner content */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Centers container */
+}
+
+.suppliers-by-region h2 {
+  font-size: 2em; /* Heading size */
+  color: #333; /* Dark grey text */
+  margin-bottom: 25px; /* Space below heading */
+  text-align: left; /* Aligns heading to the left */
+}
+
+.suppliers-by-region .region-list {
+  list-style: none; /* Removes bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+  display: grid; /* Uses CSS Grid */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns (at least 200px wide) */
+  gap: 15px; /* Space between region items */
+}
+
+.suppliers-by-region .region-list li {
+  display: flex; /* Uses Flexbox */
+  flex-direction: column; /* Stacks flag, name, and domain vertically */
+  align-items: center; /* Centers items horizontally */
+  background-color: #fff; /* White background */
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 8px; /* Rounds corners */
+  padding: 10px; /* Inner spacing */
+  font-size: 0.85em; /* Text size */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  text-align: center; /* Centers text */
+}
+
+.suppliers-by-region .region-list li img {
+  width: 40px; /* Width of flag image */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 4px; /* Rounds corners */
+  margin-bottom: 5px; /* Space below flag */
+}
+
+.suppliers-by-region .region-list li span {
+  color: #333; /* Dark grey text */
+  display: block; /* Makes span a block element for centering */
+  margin-bottom: 3px; /* Space below region name */
+}
+
+.suppliers-by-region .region-list li .domain {
+  color: #777; /* Light grey text */
+  font-size: 0.8em; /* Text size */
+}
+
+/* Newsletter Subscription Section */
+/* Likely used on: index.html or footer area of most pages */
+.newsletter-subscription {
+  padding: 60px 0; /* Vertical spacing */
+  background-color: #f8f9fa; /* Light grey background */
+  text-align: center; /* Centers all content */
+}
+
+.newsletter-subscription .container {
+  width: 90%; /* Width of inner content */
+  max-width: 768px; /* Maximum width */
+  margin: 0 auto; /* Centers container */
+}
+
+.newsletter-subscription h2 {
+  font-size: 1.8em; /* Heading size */
+  color: #333; /* Dark grey text */
+  margin-bottom: 15px; /* Space below heading */
+}
+
+.newsletter-subscription p {
+  color: #6c757d; /* Grey text */
+  margin-bottom: 30px; /* Space below paragraph */
+  font-size: 0.95em; /* Text size */
+}
+
+.newsletter-subscription .subscription-form {
+  display: flex; /* Uses Flexbox for input and button */
+  justify-content: center; /* Centers items horizontally */
+  align-items: center; /* Centers items vertically */
+  gap: 10px; /* Space between input and button */
+  max-width: 500px; /* Maximum width of the form */
+  margin: 0 auto; /* Centers the form */
+}
+
+.newsletter-subscription .input-wrapper {
+  display: flex; /* Uses Flexbox for icon and input field */
+  align-items: center; /* Centers items vertically */
+  background-color: #fff; /* White background */
+  border-radius: 6px; /* Rounds corners */
+  border: 1px solid #ced4da; /* Light grey border */
+  padding: 8px 12px; /* Inner spacing */
+  flex-grow: 1; /* Allows wrapper to take available space */
+}
+
+.newsletter-subscription .input-wrapper i {
+  margin-right: 8px; /* Space to the right of the icon */
+  color: #6c757d; /* Grey icon color */
+  font-size: 1em; /* Icon size */
+}
+
+.newsletter-subscription .input-wrapper input[type="email"] {
+  border: none; /* No border for input field */
+  padding: 8px 0; /* Vertical inner spacing */
+  font-size: 1em; /* Text size */
+  color: #495057; /* Darker grey text */
+  flex-grow: 1; /* Allows input to take available space */
+}
+
+.newsletter-subscription .input-wrapper input[type="email"]:focus {
+  outline: none; /* Removes outline when input is focused */
+}
+
+.newsletter-subscription .subscribe-button {
+  background-color: #007bff; /* Blue background */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  padding: 12px 20px; /* Inner spacing */
+  border-radius: 6px; /* Rounds corners */
+  font-size: 1em; /* Text size */
+  cursor: pointer; /* Hand cursor */
+  transition: background-color 0.3s ease; /* Smooth background change */
+}
+
+.newsletter-subscription .subscribe-button:hover {
+  background-color: #0056b3; /* Darker blue background on hover */
+}
+
+
+/*
+====================================================================
+  FOOTER SECTION STYLES - DESKTOP
+  These styles are for the bottom part of your website, which usually
+  appears on every page.
+  Likely used on: index.html, product.html, product-details.html, cart.html
+====================================================================
+*/
+.site-footer {
+  background-color: white; /* White background */
+  padding-top: 40px; /* Top spacing */
+  padding-bottom: 20px; /* Bottom spacing */
+  border-top: 1px solid #eee; /* Light grey line at the top */
+}
+
+.footer-content {
+  display: flex; /* Uses Flexbox for main footer columns */
+  justify-content: space-between; /* Distributes space between columns */
+  flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+  padding: 0 20px 30px 20px; /* Inner spacing (left/right, top/bottom) */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Centers content */
+}
+
+.footer-about {
+  flex: 1 1 300px; /* Flexible width, minimum 300px wide */
+  margin-right: auto; /* Pushes link columns to the right */
+}
+
+.logo-container {
+  display: flex; /* Uses Flexbox for logo and brand name */
+  align-items: center; /* Centers items vertically */
+  gap: 10px; /* Space between logo and brand name */
+  margin-bottom: 15px; /* Space below logo */
+}
+
+.logo-footer {
+  height: 30px; /* Height of footer logo */
+  width: auto; /* Maintains aspect ratio */
+}
+
+.brand-name-footer {
+  font-size: 1.5em; /* Brand name font size */
+  font-weight: bold; /* Bold text */
+  color: #333; /* Dark grey text */
+}
+
+.company-info {
+  color: #777; /* Light grey text */
+  font-size: 0.9em; /* Text size */
+  line-height: 1.5; /* Line spacing */
+  margin-bottom: 20px; /* Space below info */
+}
+
+.social-links {
+  display: flex; /* Uses Flexbox for social icons */
+  gap: 10px; /* Space between icons */
+}
+
+.social-links a {
+  display: inline-block; /* Makes links behave like inline blocks */
+}
+
+.social-links img {
+  height: 24px; /* Height of social icons */
+  width: 24px; /* Width of social icons */
+  object-fit: contain; /* Ensures the image fits within the bounds */
+  border-radius: 50%; /* Makes icon backgrounds circular */
+  background-color: #ddd; /* Light grey background */
+  padding: 3px; /* Inner spacing */
+}
+
+.footer-links {
+  display: flex; /* Uses Flexbox for columns of links */
+  gap: 40px; /* Horizontal space between link columns */
+}
+
+.footer-section {
+  flex-basis: auto; /* Allows section to take up space based on content */
+}
+
+.footer-section h4 {
+  font-size: 1.1em; /* Heading size for footer sections */
+  color: #333; /* Dark grey text */
+  margin-bottom: 10px; /* Space below heading */
+  font-weight: bold; /* Bold text */
+}
+
+.footer-section ul {
+  list-style: none; /* Removes bullet points */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+.footer-section ul li {
+  margin-bottom: 0px; /* No extra space between list items */
+}
+
+.footer-section ul li a {
+  text-decoration: none; /* Removes underline */
+  color: #555; /* Medium grey text */
+  font-size: 0.9em; /* Text size */
+}
+
+.get-app {
+  margin-left: 40px; /* Space to the left of the "Get App" section */
+}
+
+.app-store-link, .google-play-link {
+  display: block; /* Makes links block elements */
+  margin-bottom: 10px; /* Space below each app store link */
+}
+
+.app-store-link img, .google-play-link img {
+  height: 35px; /* Height of app store badges */
+  width: auto; /* Maintains aspect ratio */
+}
+
+/* Footer Bottom Bar (Copyright and language selector) */
+.footer-bottom {
+  background-color: #e9e9e9; /* Light grey background */
+  padding: 15px 20px; /* Inner spacing */
+  border-top: 1px solid #ddd; /* Light grey line at the top */
+}
+
+.bottom-container {
+  display: flex; /* Uses Flexbox for copyright and language selector */
+  justify-content: space-between; /* Distributes space between items */
+  align-items: center; /* Centers items vertically */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Centers content */
+}
+
+.bottom-container p {
+  color: #777; /* Light grey text */
+  font-size: 0.85em; /* Text size */
+  margin: 0; /* No margin */
+}
+
+.language-select {
+  display: flex; /* Uses Flexbox for flag, text, and dropdown icon */
+  align-items: center; /* Centers items vertically */
+  gap: 5px; /* Space between items */
+  cursor: pointer; /* Hand cursor */
+}
+
+.language-select img {
+  height: 20px; /* Height of language flag */
+  width: auto; /* Maintains aspect ratio */
+  vertical-align: middle; /* Aligns image vertically */
+}
+
+.language-select span {
+  color: #555; /* Medium grey text */
+  font-size: 0.9em; /* Text size */
+}
+
+.language-select i.icon-dropdown { /* Style for dropdown arrow icon */
+  font-size: 0.7em; /* Icon size */
+}
+
+
+/*
+====================================================================
+  MOBILE RESPONSIVE STYLES
+  These styles override the desktop styles when the screen size
+  is 768px or smaller, making your site adapt to mobile devices.
+  Applies to ALL HTML pages that use these sections.
+====================================================================
+*/
+@media (max-width: 768px) {
+    /* Global / Base Styles - Mobile Adjustments */
+    body {
+        font-size: 14px; /* Reduced base font size for better readability on small screens */
+    }
+
+    .button {
+        padding: 10px 15px; /* Reduced button padding for more compact touch targets */
+        font-size: 0.9em; /* Slightly smaller button text for mobile */
+    }
+
+    .container {
+        width: 95%; /* Increased width slightly to take more space on very small screens */
+        padding: 0 15px; /* Reduced horizontal padding inside the container for more content space */
+    }
+
+    /* Top Navigation Bar - Mobile Adjustments */
+    .top-navigation.centered {
+        flex-direction: column; /* Stacks items vertically */
+        padding: 8px 10px; /* Reduced padding */
+        align-items: flex-start; /* Aligns items to the left */
+        font-size: 0.8em; /* Smaller base font size */
+    }
+
+    .top-navigation.centered .nav-items,
+    .top-navigation.centered .right-actions {
+        flex-direction: column; /* Stack sub-items vertically */
+        width: 100%; /* Full width */
+        gap: 8px; /* Reduced gap */
+        align-items: flex-start; /* Aligns sub-items to the left */
+        margin-bottom: 5px; /* Space between stacked groups */
+    }
+
+    .top-navigation.centered .nav-items button.category-menu,
+    .top-navigation.centered .nav-items a,
+    .top-navigation.centered .nav-items .dropdown-toggle,
+    .top-navigation.centered .right-actions .language-currency,
+    .top-navigation.centered .right-actions .ship-to {
+        width: 100%; /* Full width for touch targets */
+        padding: 8px 10px; /* Adjusted padding */
+        font-size: 0.9em; /* Adjusted font size */
+        justify-content: flex-start; /* Aligns content to the left */
+        text-align: left; /* Aligns text to the left */
+    }
+
+    .top-navigation.centered .nav-items i {
+        font-size: 1.1em; /* Adjusted icon size */
+    }
+
+    .top-navigation.centered .nav-items .dropdown-menu {
+        position: static; /* Removes absolute positioning, flows with content */
+        width: 100%; /* Full width */
+        border: none; /* No border */
+        box-shadow: none; /* No shadow */
+        padding: 0; /* No padding */
+    }
+
+    .top-navigation.centered .nav-items .dropdown-menu a {
+        padding-left: 20px; /* Indents dropdown items */
+    }
+
+    /* Main Header - Mobile Adjustments */
+    .site-header {
+        padding: 15px 0; /* Adjusted overall header padding */
+    }
+
+    .header-container {
+        flex-direction: column; /* Stacks logo, search, and menu vertically */
+        align-items: center; /* Centers items horizontally */
+        gap: 15px; /* Space between stacked elements */
+    }
+
+    .logo {
+        height: 50px; /* Smaller logo */
+        width: auto; /* Maintains aspect ratio */
+        margin-bottom: 5px; /* Space below logo */
+    }
+
+    .search-container {
+        width: 100%; /* Full width for search */
+        max-width: 95%; /* Limits width to prevent stretching */
+        margin: 0 auto; /* Center the container */
+        flex-wrap: wrap; /* Allow elements inside to wrap */
+        /* Removed flex-direction: column here to keep search, dropdown, button inline */
+    }
+
+    .search-bar {
+        flex-grow: 1; /* Allows the search input to grow */
+        width: auto; /* Allow width to be determined by flex-grow */
+        border-radius: 4px; /* Default rounded corners for input */
+        margin-right: 0; /* Remove specific margin if present */
+        padding: 10px 12px; /* Adjust padding for mobile */
+        font-size: 0.9em; /* Adjust font size */
+    }
+
+    .category-dropdown {
+        display: block; /* Make sure it's visible */
+        padding: 10px 10px; /* Adjust padding for mobile */
+        font-size: 0.9em; /* Adjust font size */
+        flex-shrink: 0; /* Prevent it from shrinking too much */
+        margin-left: 5px; /* Add a small margin to separate from search bar */
+        border-radius: 4px; /* Ensure rounded corners */
+    }
+
+    .search-button {
+        display: block; /* Make sure it's visible */
+        padding: 10px 12px; /* Adjust padding for mobile */
+        font-size: 0.9em; /* Adjust font size */
+        flex-shrink: 0; /* Prevent it from shrinking too much */
+        margin-left: 5px; /* Add a small margin to separate from dropdown */
+        border-radius: 4px; /* Ensure rounded corners */
+    }
+
+    .menu {
+        flex-direction: row; /* Keeps menu items in a row (if they fit) */
+        justify-content: space-around; /* Distributes items evenly */
+        width: 100%; /* Full width */
+        padding: 0 10px; /* Horizontal padding */
+        gap: 0; /* No gap (space-around handles spacing) */
+    }
+
+    .menu a {
+        flex: 1; /* Each menu item takes equal space */
+        text-align: center; /* Centers icon and text */
+        padding: 8px 0; /* Adjusted vertical padding */
+        font-size: 0.85em; /* Smaller font size */
+    }
+
+    .nav-icon {
+        height: 35px; /* Smaller icons */
+        width: 35px; /* Smaller icons */
+        margin-bottom: 3px; /* Reduced space */
+    }
+
+    /* Additional Media Query for very small mobile screens (e.g., <480px) */
+    /* This will stack the search components if they are still too cramped horizontally. */
+    @media (max-width: 480px) {
+      .search-container {
+        flex-direction: column; /* Stack input, dropdown, and button vertically */
+        gap: 10px; /* Space between stacked items */
+        align-items: center; /* Center them when stacked */
+      }
+      .search-bar,
+      .category-dropdown,
+      .search-button {
+        width: 100%; /* Make them full width when stacked */
+        margin-left: 0; /* Remove side margins when stacked */
+        margin-right: 0;
+      }
+    }
+
+    /* Main Hero Section - Mobile Adjustments */
+    .container-hero {
+        flex-direction: column; /* Stacks sidebar, hero, and right panel */
+        padding: 20px 15px; /* Adjusted padding */
+        gap: 15px; /* Adjusted gap */
+    }
+
+    .sidebar,
+    .hero-banner,
+    .right-panel {
+        flex: none; /* Resets flex-grow */
+        max-width: 100%; /* Full width */
+    }
+
+    /* Sidebar category list visibility fix */
+    .category-list {
+      overflow: visible; /* Ensures all list items are visible, not cut off */
+      /* If you had a fixed height or max-height here, ensure it's removed or adjusted for mobile */
+    }
+
+    .category-list li a {
+        padding: 10px 12px; /* Adjusted padding */
+        font-size: 1em; /* Adjusted font size */
+    }
+
+    .hero-banner {
+        padding: 20px; /* Reduced padding */
+        min-height: 200px; /* Minimum height */
+        background-size: cover; /* Ensures image covers */
+    }
+
+    .hero-content h2 {
+        font-size: 1.8em; /* Adjusted font size */
+        margin-bottom: 8px; /* Reduced margin */
+    }
+
+    .btn-learn {
+        padding: 8px 15px; /* Adjusted button padding */
+        font-size: 0.9em; /* Adjusted button font size */
+    }
+
+    .user-box,
+    .coupon-box,
+    .quote-box {
+        padding: 20px; /* Adjusted padding */
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    /* Hero Section (after header) - Mobile Adjustments */
+    .hero {
+        padding: 40px 20px; /* Adjusted padding */
+        border-radius: 4px; /* Smaller border-radius */
+        margin-bottom: 20px; /* Adjusted margin */
+    }
+
+    .hero h1 {
+        font-size: 1.8em; /* Adjusted font size */
+        margin-bottom: 15px; /* Adjusted margin */
+    }
+
+    .hero p {
+        font-size: 1em; /* Adjusted font size */
+        margin-bottom: 20px; /* Adjusted margin */
+    }
+
+    /* Featured Products - Mobile Adjustments */
+    .featured-products h2 {
+        font-size: 1.8em; /* Adjusted heading size */
+        margin-bottom: 20px; /* Adjusted margin */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Two columns on small screens */
+        gap: 15px; /* Adjusted gap */
+    }
+
+    .product-card {
+        padding: 15px; /* Adjusted padding */
+        border-radius: 6px; /* Adjusted border-radius */
+    }
+
+    .product-card img {
+        height: 150px; /* Adjusted image height */
+    }
+
+    .product-card h3 {
+        font-size: 1.1em; /* Adjusted font size */
+    }
+
+    .product-card .price {
+        font-size: 1em; /* Adjusted font size */
+    }
+
+    .product-card .button {
+        font-size: 0.85em; /* Adjusted button font size */
+        padding: 8px 12px; /* Adjusted padding */
+    }
+
+    /* Product Categories - Mobile Adjustments */
+    .product-categories h2 {
+        font-size: 1.8em; /* Adjusted heading size */
+        margin-bottom: 20px; /* Adjusted margin */
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on small screens as requested earlier */
+        /* Alternatively: grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
+        gap: 15px; /* Adjusted gap */
+    }
+
+    .category-card {
+        padding: 10px; /* Adjusted padding */
+    }
+
+    .category-card img {
+        height: 120px; /* Adjusted image height */
+    }
+
+    .category-card h3 {
+        font-size: 1em; /* Adjusted font size */
+    }
+
+    .category-card.home-outdoor {
+        grid-column: span 1; /* Ensure it only spans 1 column on mobile */
+        text-align: center; /* Centers content */
+    }
+
+    .category-card.home-outdoor .subcategory-grid {
+        grid-template-columns: 1fr; /* Stacks subcategories vertically */
+        gap: 10px; /* Adjusted gap */
+    }
+
+    .category-card.home-outdoor .subcategory-item h4 {
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    .category-card.home-outdoor .subcategory-item img {
+        height: 60px; /* Smaller subcategory images */
+    }
+
+    .category-card.home-outdoor .subcategory-item p {
+        font-size: 0.8em; /* Adjusted font size */
+    }
+
+    /* Deals and Offers Grid - Mobile Adjustments */
+    .deals-grid {
+        flex-direction: row; /* Keeps horizontal scroll */
+        padding: 15px; /* Adjusted padding */
+        gap: 10px; /* Adjusted gap */
+    }
+
+    .deals-header-combined {
+        margin-right: 15px; /* Adjusted margin */
+        flex-shrink: 0; /* Prevents shrinking */
+        width: 180px; /* Fixed width for header */
+        text-align: center; /* Centers content */
+    }
+
+    .deals-header-combined h3 {
+        font-size: 1.5em; /* Adjusted heading size */
+    }
+
+    .deals-header-combined .countdown-item {
+        padding: 8px 12px; /* Adjusted padding */
+        font-size: 1em; /* Adjusted font size */
+    }
+
+    .deal-item {
+        padding: 10px; /* Adjusted padding */
+        min-width: 120px; /* Minimum width for each item */
+    }
+
+    .deal-item img {
+        height: 80px; /* Adjusted image height */
+    }
+
+    .deal-item h3 {
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    /* Combined Section - Mobile Adjustments */
+    .full-width-section {
+        padding: 15px 0; /* Adjusted padding */
+        margin-bottom: 20px; /* Adjusted margin */
+    }
+
+    .combined-container {
+        padding: 0 15px; /* Adjusted padding */
+    }
+
+    .combined-layout {
+        flex-direction: column; /* Stacks blocks */
+        gap: 15px; /* Adjusted gap */
+    }
+
+    .home-outdoor-block,
+    .Consumer-electronics-and-gadgets {
+        flex: none; /* Resets flex-grow */
+        width: 100%; /* Full width */
+        padding: 20px; /* Adjusted padding */
+        padding-bottom: 150px; /* Reduced bottom padding */
+        min-height: 200px; /* Minimum height */
+        justify-content: center; /* Centers content vertically */
+        align-items: center; /* Centers content horizontally */
+        text-align: center; /* Centers text */
+    }
+
+    .home-outdoor-block h3,
+    .Consumer-electronics-and-gadgets h3 {
+        font-size: 1.5em; /* Adjusted font size */
+        margin-bottom: 8px; /* Reduced margin */
+    }
+
+    .home-outdoor-block .source-now,
+    .Consumer-electronics-and-gadgets .source-now {
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    .product-grid-adjacent {
+        flex: none; /* Resets flex-grow */
+        width: 100%; /* Full width */
+        grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+        gap: 10px; /* Adjusted gap */
+    }
+
+    .product-grid-adjacent .product-card {
+        padding: 10px; /* Adjusted padding */
+    }
+
+    .product-grid-adjacent .product-card img {
+        max-height: 80px; /* Smaller images */
+    }
+
+    .product-grid-adjacent .product-card h3 {
+        font-size: 0.9em; /* Smaller font size */
+    }
+
+    .product-grid-adjacent .product-card .price {
+        font-size: 0.8em; /* Smaller font size */
+    }
+
+    /* New Hero Section - Mobile Adjustments */
+    .new-hero {
+        padding: 20px 0; /* Adjusted padding */
+    }
+
+    .new-hero-container {
+        flex-direction: column; /* Stacks content and form */
+        padding: 15px; /* Adjusted padding */
+    }
+
+    .hero-left-content {
+        flex: none; /* Resets flex-grow */
+        width: 100%; /* Full width */
+        padding-right: 0; /* Removes right padding */
+        margin-bottom: 20px; /* Space below content */
+        text-align: center; /* Centers content */
+    }
+
+    .hero-left-content h2 {
+        font-size: 1.5em; /* Adjusted font size */
+        margin-bottom: 10px; /* Reduced margin */
+    }
+
+    .hero-left-content p {
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    .hero-right-form {
+        width: 100%; /* Full width for form */
+        padding: 20px; /* Adjusted padding */
+    }
+
+    .hero-right-form h3 {
+        font-size: 1.2em; /* Adjusted font size */
+        margin-bottom: 15px; /* Reduced margin */
+    }
+
+    .hero-right-form .input-group,
+    .hero-right-form .quantity-group {
+        flex-direction: column; /* Stacks input groups */
+        gap: 10px; /* Adjusted gap */
+    }
+
+    .hero-right-form .quantity-group .input-group.quantity,
+    .hero-right-form .quantity-group .select-group {
+        flex: none; /* Resets flex-grow */
+        width: 100%; /* Full width */
+    }
+
+    .hero-right-form .button.send-inquiry {
+        padding: 10px; /* Adjusted button padding */
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    /* Recommended Items Section - Mobile Adjustments */
+    .recommended-items {
+        padding: 20px 0; /* Adjusted padding */
+    }
+
+    .recommended-items h2 {
+        font-size: 1.8em; /* Adjusted heading size */
+        margin-bottom: 20px; /* Adjusted margin */
+    }
+
+    .recommended-items .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Two columns on small screens */
+        gap: 15px; /* Adjusted gap */
+    }
+
+    .recommended-items .product-card {
+        padding: 10px; /* Adjusted padding */
+    }
+
+    .recommended-items .product-card img {
+        height: 120px; /* Adjusted image height */
+    }
+
+    .recommended-items .product-card .price {
+        font-size: 1em; /* Adjusted font size */
+    }
+
+    .recommended-items .product-card h3 {
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    /* Extra Services Section - Mobile Adjustments */
+    .extra-services {
+        padding: 20px 0; /* Adjusted padding */
+    }
+
+    .extra-services h2 {
+        font-size: 1.8em; /* Adjusted heading size */
+        margin-bottom: 20px; /* Adjusted margin */
+    }
+
+    .extra-services .services-grid {
+        padding-bottom: 15px; /* Adjusted padding */
+        gap: 15px; /* Adjusted gap */
+    }
+
+    .extra-services .service-card {
+        min-width: 220px; /* Minimum width for cards */
+    }
+
+    .extra-services .service-card img {
+        max-height: 120px; /* Adjusted image height */
+    }
+
+    .extra-services .service-card .icon-overlay {
+        width: 35px; /* Smaller icon overlay */
+        height: 35px; /* Smaller icon overlay */
+        font-size: 1em; /* Adjusted font size */
+    }
+
+    .extra-services .service-card h3 {
+        font-size: 1em; /* Adjusted font size */
+        padding: 10px; /* Adjusted padding */
+    }
+
+    /* Suppliers by Region Section - Mobile Adjustments */
+    .suppliers-by-region {
+        padding: 20px 0; /* Adjusted padding */
+    }
+
+    .suppliers-by-region h2 {
+        font-size: 1.8em; /* Adjusted heading size */
+        margin-bottom: 20px; /* Adjusted margin */
+    }
+
+    .suppliers-by-region .region-list {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Two or three columns */
+        gap: 10px; /* Adjusted gap */
+    }
+
+    .suppliers-by-region .region-list li {
+        padding: 8px; /* Adjusted padding */
+        font-size: 0.8em; /* Adjusted font size */
+    }
+
+    .suppliers-by-region .region-list li img {
+        width: 35px; /* Smaller flag size */
+    }
+
+    .suppliers-by-region .region-list li span {
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    .suppliers-by-region .region-list li .domain {
+        font-size: 0.7em; /* Adjusted font size */
+    }
+
+    /* Newsletter Subscription Section - Mobile Adjustments */
+    .newsletter-subscription {
+        padding: 30px 0; /* Adjusted padding */
+    }
+
+    .newsletter-subscription h2 {
+        font-size: 1.5em; /* Adjusted font size */
+        margin-bottom: 10px; /* Reduced margin */
+    }
+
+    .newsletter-subscription p {
+        font-size: 0.9em; /* Adjusted font size */
+        margin-bottom: 20px; /* Reduced margin */
+    }
+
+    .newsletter-subscription .subscription-form {
+        flex-direction: column; /* Stacks input and button */
+        gap: 10px; /* Adjusted gap */
+        max-width: 90%; /* Responsive width */
+    }
+
+    .newsletter-subscription .input-wrapper {
+        width: 100%; /* Full width */
+        padding: 10px; /* Adjusted padding */
+    }
+
+    .newsletter-subscription .input-wrapper input[type="email"] {
+        padding: 5px 0; /* Adjusted padding */
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    .newsletter-subscription .subscribe-button {
+        width: 100%; /* Full width */
+        padding: 10px; /* Adjusted padding */
+        font-size: 0.9em; /* Adjusted font size */
+    }
+
+    /* FOOTER - Mobile Adjustments */
+    .footer-content {
+        flex-direction: column; /* Stacks footer columns vertically */
+        gap: 30px; /* Space between stacked columns */
+        padding: 20px; /* Adjusted padding */
+    }
+
+    .footer-links {
+        flex-direction: column; /* Stacks link columns vertically */
+        gap: 20px; /* Space between stacked link columns */
+    }
+
+    .get-app {
+        margin-left: 0; /* Removes left margin */
+    }
+
+    .bottom-container {
+        flex-direction: column; /* Stacks copyright and language selector */
+        align-items: flex-start; /* Aligns items to the left */
+        gap: 10px; /* Space between stacked items */
+        padding: 20px; /* Adjusted padding */
+    }
+}
+
+/* === MOBILE RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 768px) {
+  .top-navigation.centered {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .top-navigation.centered .nav-items,
+  .top-navigation.centered .right-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .container-hero,
+  .header-container,
+  .new-hero-container {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+
+  .sidebar,
+  .right-panel {
+    display: none; /* Hide on mobile or move below */
+  }
+
+  .hero-banner {
+    flex-direction: column;
+    padding: 20px 10px;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin-right: 0;
+  }
+
+  .product-grid-adjacent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .combined-layout {
+    flex-direction: column;
+  }
+
+  .Consumer-electronics-and-gadgets,
+  .home-outdoor-block {
+    padding-bottom: 100px;
+  }
+
+  .search-container {
+    flex-direction: column;
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .hero-right-form {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .newsletter-subscription .subscription-form {
+    flex-direction: column;
+  }
+
+  .newsletter-subscription .subscribe-button {
+    width: 100%;
+  }
+
+  .product-grid,
+  .recommended-items .product-grid,
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .deals-grid {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .site-footer .footer-content {
+    flex-direction: column;
+  }
+
+  .bottom-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .nav-icon {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid,
+  .recommended-items .product-grid,
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid-adjacent {
+    grid-template-columns: 1fr;
+  }
+}

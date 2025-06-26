@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart - Ecommerce</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Basic CSS for the cart page - extend this in style.css */
+        .cart-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .cart-items {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .cart-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-name {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .item-options {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-actions button {
+            background: none;
+            border: none;
+            color: #007bff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .item-actions button:hover {
+            text-decoration: underline;
+        }
+
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .quantity-button {
+            background: none;
+            border: none;
+            padding: 5px 8px;
+            font-size: 0.9rem;
+            color: #555;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            padding: 5px;
+            font-size: 0.9rem;
+            color: #333;
+            outline: none;
+        }
+
+        .item-price {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: bold;
+            margin-left: auto;
+        }
+
+        .cart-summary {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .summary-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .summary-row.total {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .coupon-input-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .coupon-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 0.9rem;
+            color: #333;
+            outline: none;
+        }
+
+        .apply-coupon-button {
+            background-color: #f8f9fa;
+            color: #007bff;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 4px 4px 0;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .apply-coupon-button:hover {
+            background-color: #eee;
+        }
+
+        .checkout-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .checkout-button:hover {
+            background-color: #1e7e34;
+        }
+
+        .payment-methods {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .payment-methods img {
+            height: 20px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+
+        .cart-actions-bottom {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-to-shop-button {
+            background: none;
+            border: 1px solid #ddd;
+            color: #555;
+            border-radius: 6px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .back-to-shop-button:hover {
+            background-color: #eee;
+        }
+
+        .remove-all-button {
+            background: none;
+            border: none;
+            color: #dc3545;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .remove-all-button:hover {
+            text-decoration: underline;
+        }
+
+        .saved-for-later {
+            margin-top: 30px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .saved-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .saved-items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .saved-item {
+            text-align: center;
+        }
+
+        .saved-item-image {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .saved-item-name {
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 5px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .saved-item-price {
+            font-size: 0.95rem;
+            color: #e44d26;
+            font-weight: bold;
+        }
+
+        .move-to-cart-button {
+            background: none;
+            border: 1px solid #007bff;
+            color: #007bff;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            margin-top: 5px;
+        }
+
+        .move-to-cart-button:hover {
+            background-color: #e7f3ff;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="/" class="logo-link">
+                <img src="assets/logo.png" alt="Logo" class="logo" />
+            </a>
+
+            <nav class="menu">
+                <a href="#">
+                    <img src="assets/profile-icon.png" alt="Profile" class="nav-icon">
+                    Profile
+                </a>
+                <a href="#">
+                    <img src="assets/message-icon.png" alt="Message" class="nav-icon">
+                    Message
+                </a>
+                <a href="#">
+                    <img src="assets/heart-icon.png" alt="Orders" class="nav-icon">
+                    Orders
+                </a>
+                <a href="#">
+                    <img src="assets/cart-icon.png" alt="My Cart" class="nav-icon">
+                    My Cart
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container cart-container">
+        <div class="cart-items">
+            <h1 class="cart-title">My cart (3)</h1>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="assets/subcategory-lamp.jpg" alt="T-shirt 1">
+                </div>
+                <div class="item-details">
+                    <div class="item-name">Lamp</div>
+                    <div class="item-options">Size: medium, Color: white, Material: Plastic</div>
+                    <div class="item-actions">
+                        <button>Remove</button>
+                        <button>Save for later</button>
+                    </div>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-button">-</button>
+                    <input type="number" class="quantity-input" value="9" min="1">
+                    <button class="quantity-button">+</button>
+                </div>
+                <div class="item-price">$76.99</div>
+            </div>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="assets/recommended-jacket.jpg" alt="T-shirt 2">
+                </div>
+                <div class="item-details">
+                    <div class="item-name">Jeans</div>
+                    <div class="item-options">Size: medium, Color: blue, Material: Plastic</div>
+                    <div class="item-actions">
+                        <button>Remove</button>
+                        <button>Save for later</button>
+                    </div>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-button">-</button>
+                    <input type="number" class="quantity-input" value="3" min="1">
+                    <button class="quantity-button">+</button>
+                </div>
+                <div class="item-price">$39.00</div>
+            </div>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="assets/deal-headphones.jpg" alt="T-shirt 3">
+                </div>
+                <div class="item-details">
+                    <div class="item-name">Gaming Set</div>
+                    <div class="item-options">Size: medium, Color: blue, Material: Plastic</div>
+                    <div class="item-actions">
+                        <button>Remove</button>
+                        <button>Save for later</button>
+                    </div>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-button">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-button">+</button>
+                </div>
+                <div class="item-price">$170.50</div>
+            </div>
+            <div class="cart-actions-bottom">
+                <button class="back-to-shop-button"><i class="fas fa-arrow-left"></i> Back to shop</button>
+                <button class="remove-all-button">Remove all</button>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <h2 class="summary-title">Have a coupon?</h2>
+            <div class="coupon-input-group">
+                <input type="text" class="coupon-input" placeholder="Enter coupon code">
+                <button class="apply-coupon-button">Apply</button>
+            </div>
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span>$1403.87</span>
+            </div>
+            <div class="summary-row">
+                <span>Discount:</span>
+                <span class="discount">-$60.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Tax:</span>
+                <span class="tax">+$14.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span>$1357.97</span>
+            </div>
+            <button class="checkout-button">Checkout</button>
+            <div class="payment-methods">
+                <img src="assets/visa.png" alt="Visa">
+                <img src="assets/mastercard.png" alt="Mastercard">
+                <img src="assets/paypal.png" alt="PayPal">
+                <img src="assets/amex.png" alt="Amex">
+                <img src="assets/discover.png" alt="ApplePay">
+            </div>
+        </div>
+    </div>
+
+    <div class="container saved-for-later">
+        <h2 class="saved-title">Saved for later</h2>
+        <div class="saved-items-grid">
+            <div class="saved-item">
+                <img src="assets/smartwatch.png" alt="Saved Item 1" class="saved-item-image">
+                <h3 class="saved-item-name">Smart Watch</h3>
+                <p class="saved-item-price">$99.50</p>
+                <button class="move-to-cart-button">Move to cart</button>
+            </div>
+            <div class="saved-item">
+                <img src="assets/wireless-earbuds.jpg" alt="Saved Item 2" class="saved-item-image">
+                <h3 class="saved-item-name">Head Phones</h3>
+                <p class="saved-item-price">$99.50</p>
+                <button class="move-to-cart-button">Move to cart</button>
+            </div>
+            <div class="saved-item">
+                <img src="assets/subcategory-chair.jpg" alt="Saved Item 3" class="saved-item-image">
+                <h3 class="saved-item-name">Sofa Chair</h3>
+                <p class="saved-item-price">$99.50</p>
+                <button class="move-to-cart-button">Move to cart</button>
+            </div>
+            <div class="saved-item">
+                <img src="assets/camera.jpg" alt="Saved Item 4" class="saved-item-image">
+                <h3 class="saved-item-name">GoPro</h3>
+                <p class="saved-item-price">$99.50</p>
+                <button class="move-to-cart-button">Move to cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #007bff; color: #fff; padding: 20px; margin-top: 30px; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h2 style="font-size: 1.2rem; margin-bottom: 10px;">Super discount on more than 100 USD</h2>
+                <p style="font-size: 0.9rem;">Have you ever finally just write dummy info</p>
+            </div>
+            <button style="background-color: #ffa500; color: #fff; border: none; border-radius: 6px; padding: 10px 20px; font-size: 1rem; cursor: pointer;">Shop now</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <div class="logo-container">
+                    <img src="assets/logo-footer.png" alt="Brand Logo" class="logo-footer" />
+                </div>
+                <p class="company-info">Best information about the company goes here but now lorem ipsum is</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><img src="assets/facebook-circular.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="assets/twitter-circular.png" alt="Twitter"></a>
+                    <a href="#" target="_blank"><img src="assets/linkedin-circular.png" alt="LinkedIn"></a>
+                    <a href="#" target="_blank"><img src="assets/instagram-circular.png" alt="Instagram"></a>
+                    <a href="#" target="_blank"><img src="assets/youtube-circular.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Money Refund</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For users</h4>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">My Orders</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-section get-app">
+                <h4>Get app</h4>
+                <a href="#" class="app-store-link"><img src="assets/app-store-badge.png" alt="Download on the App Store"></a>
+                <a href="#" class="google-play-link"><img src="assets/google-play-badge.png" alt="Get it on Google Play"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-container">
+                <p>© 2025 Ecommerce.</p>
+                <div class="language-select">
+                    <img src="assets/english-flag.png" alt="English">
+                    <span>English</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

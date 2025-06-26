@@ -1,0 +1,4970 @@
+======================================= index.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecommerce Website</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Basic styling for demonstration */
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            margin-right: 5px;
+        }
+        .category-dropdown {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-right: none;
+            cursor: pointer;
+        }
+        .search-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-container">
+        <a href="/" class="logo-link">
+            <img src="assets/logo.png" alt="Logo" class="logo" />
+        </a>
+        <div class="search-container">
+            <input type="text" placeholder="Search products..." class="search-bar" />
+            <select class="category-dropdown" id="categorySelect">
+                <option value="all">All Category</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                
+            </select>
+            <button class="search-button" onclick="navigateToProducts()">Search</button>
+        </div>
+        <nav class="menu">
+            <a href="#">
+                <img src="assets/profile-icon.png" alt="Profile" class="nav-icon">
+                Profile
+            </a>
+            <a href="#">
+                <img src="assets/message-icon.png" alt="Message" class="nav-icon">
+                Message
+            </a>
+            <a href="#">
+                <img src="assets/heart-icon.png" alt="Orders" class="nav-icon">
+                Orders
+            </a>
+            <a href="cart.html" id="cartLink">
+                <img src="assets/cart-icon.png" alt="My Cart" class="nav-icon">
+                My Cart
+            </a>
+        </nav>
+    </div>
+</header>
+
+<section class="main-hero">
+    <div class="container-hero">
+        <div class="sidebar">
+            <ul class="category-list">
+                <li><a href="#">Automobiles</a></li>
+                <li><a href="#">Clothes and wear</a></li>
+                <li><a href="#">Home interiors</a></li>
+                <li><a href="#">Computer and tech</a></li>
+                <li><a href="#">Tools, equipment</a></li>
+                <li><a href="#">Sports and outdoor</a></li>
+                <li><a href="#">Animal and pets</a></li>
+                <li><a href="#">Machinery tools</a></li>
+                <li><a href="#">More category</a></li>
+            </ul>
+        </div>
+
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h2>Latest trending <br><strong>Electronic items</strong></h2>
+                <button class="btn-learn">Learn more</button>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="user-box">
+                <p>Hi, user <br><strong>let's get started</strong></p>
+                <button class="btn-primary">Join now</button>
+                <button class="btn-outline">Log in</button>
+            </div>
+            <div class="coupon-box">
+                <p><strong>Get US $10 off</strong><br>with a new supplier</p>
+            </div>
+            <div class="quote-box">
+                <p>Send quotes with<br>supplier preferences</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main class="site-main">
+    <div class="container">
+        <section class="deals-offers">
+            <div class="deals-header">
+                <div class="deals-grid">
+                    <div class="deals-header-combined">
+                        <h3>Deals and offers</h3>
+                        <p class="hygiene-equipments">Hygiene equipments</p>
+                        <div class="countdown">
+                            <div class="countdown-item">
+                                <span id="days">04</span>
+                                <span class="label">Days</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="hours">13</span>
+                                <span class="label">Hour</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="minutes">34</span>
+                                <span class="label">Min</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="seconds">56</span>
+                                <span class="label">Sec</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deals-grid">
+                        <div class="deal-item">
+                            <img src="assets/deal-smartwatch.jpg" alt="Smart watches">
+                            <h3>Smart watches</h3>
+                            <p class="discount">-25%</p>
+                        </div>
+                        <div class="deal-item">
+                            <img src="assets/deal-laptop.jpg" alt="Laptops">
+                            <h3>Laptops</h3>
+                            <p class="discount">-15%</p>
+                        </div>
+                        <div class="deal-item">
+                            <img src="assets/deal-gopro.jpg" alt="GoPro cameras">
+                            <h3>GoPro cameras</h3>
+                            <p class="discount">-40%</p>
+                        </div>
+                        <div class="deal-item">
+                            <img src="assets/deal-headphones.jpg" alt="Headphones">
+                            <h3>Headphones</h3>
+                            <p class="discount">-25%</p>
+                        </div>
+                        <div class="deal-item">
+                            <img src="assets/deal-camera.jpg" alt="Canon cameras">
+                            <h3>Canon camreras</h3>
+                            <p class="discount">-25%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="combined-section">
+            <div class="container">
+                <div class="combined-layout">
+                    <div class="home-outdoor-block">
+                        <h3>Home and outdoor</h3>
+                        <button class="btn-primary1">Source now</button>
+                    </div>
+                    <div class="product-grid-adjacent">
+                        <div class="product-card">
+                            <img src="assets/subcategory-chair.jpg" alt="Soft chairs">
+                            <h3>Soft chairs</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/subcategory-lamp.jpg" alt="Lamp">
+                            <h3>Lamp</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/subcategory-kitchen-mixer.jpg" alt="Kitchen mixer">
+                            <h3>Kitchen mixer</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/subcategory-blender.jpg" alt="Coffee Maker">
+                            <h3>Coffee Maker</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/recommended-pot.jpg" alt="Mud Pot">
+                            <h3>Mud Pot</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/subcategory-kitchen-dishes.jpg" alt="kitchen dishes">
+                            <h3>kitchen dishes</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/subcategory-home-appliance.jpg" alt="Home Appliance">
+                            <h3>Home Appliance</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/subcategory-coffee-maker.jpg" alt="Plant">
+                            <h3>Plant</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="combined-section">
+            <div class="container">
+                <div class="combined-layout">
+                    <div class="Consumer-electronics-and-gadgets">
+                        <h3>Home and outdoor</h3>
+                        <button class="btn-primary1">Source now</button>
+                    </div>
+                    <div class="product-grid-adjacent">
+                        <div class="product-card">
+                            <img src="assets/recommended-smartwatch.jpg" alt="Smart Watches">
+                            <h3>Smart Watches</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/camera.jpg" alt="GoPro">
+                            <h3>GoPro</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/recommended-headphones.jpg" alt="Head Phones">
+                            <h3>Head Phones</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/recommended-kettle.jpg" alt="Electric Kattle">
+                            <h3>Electric Kattle</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/Product1.jpg" alt="Gaming Set">
+                            <h3>Gaming Set</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/7.jpg" alt="Laptops">
+                            <h3>Laptops</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/2.jpg" alt="Phones">
+                            <h3>Phones</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                        <div class="product-card">
+                            <img src="assets/1.jpg" alt="Smart Phones">
+                            <h3>Smart Phones</h3>
+                            <p class="price">From USD 19</p>
+                        </div>
+                    </div>
+        </section>
+
+        <section class="new-hero">
+            <div class="container-hero new-hero-container">
+                <div class="hero-left-content">
+                    <h2>An easy way to send<br><strong>requests to all suppliers</strong></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="hero-right-form">
+                    <h3>Send quote to suppliers</h3>
+                    <div class="input-group">
+                        <label for="item-needed">What item you need?</label>
+                        <input type="text" id="item-needed" placeholder="e.g., Steel pipes">
+                    </div>
+                    <div class="input-group">
+                        <label for="more-details">Type more details</label>
+                        <textarea id="more-details" placeholder="Optional details..."></textarea>
+                    </div>
+                    <div class="quantity-group">
+                        <div class="input-group quantity">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" value="1" min="1">
+                        </div>
+                        <div class="select-group">
+                            <label for="unit">Unit</label>
+                            <select id="unit">
+                                <option value="pcs">Pcs</option>
+                                <option value="meters">Meters</option>
+                                <option value="kg">Kg</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="button send-inquiry">Send inquiry</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="recommended-items">
+            <div class="container">
+                <h2>Recommended items</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="assets/recommended-polo.jpg" alt="T-shirts with multiple colors, for men">
+                        <p class="price">$10.30</p>
+                        <h3>T-shirts with multiple colors, for men</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/recommended-jacket.jpg" alt="Jeans shorts for men blue color">
+                        <p class="price">$10.30</p>
+                        <h3>Jeans shorts for men blue color</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/recommended-blazer.jpg" alt="Blue Blazer">
+                        <p class="price">$12.50</p>
+                        <h3>Blue Blazer</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/recommended-wallet.jpg" alt="Leather wallet">
+                        <p class="price">$34.00</p>
+                        <h3>Leather wallet</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/recommended-backpack.jpg" alt="Bag Pack">
+                        <p class="price">$99.00</p>
+                        <h3>Bag Pack</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/recommended-jeans-shorts.jpg" alt="Brown winter coat medium size">
+                        <p class="price">$9.99</p>
+                        <h3>Brown winter coat medium size</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/recommended-headphones.jpg" alt="Headset for gaming with mic">
+                        <p class="price">$8.99</p>
+                        <h3>Headset for gaming with mic</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/recommended-smartwatch.jpg" alt="Smartwatch silver color modern">
+                        <p class="price">$10.30</p>
+                        <h3>Smartwatch silver color modern</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/recommended-pot.jpg" alt="Mud Pot">
+                        <p class="price">$10.30</p>
+                        <h3>Mud Pot</h3>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/recommended-kettle.jpg" alt="Thermas">
+                        <p class="price">$80.95</p>
+                        <h3>Thermas</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="extra-services">
+            <div class="container">
+                <h2>Our extra services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="image-container">
+                            <img src="assets/service-sourcing.jpg" alt="Source from Industry Hubs">
+                            <div class="icon-overlay">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <h3>Source from Industry Hubs</h3>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="image-container">
+                            <img src="assets/service-customize.jpg" alt="Customize Your Products">
+                            <div class="icon-overlay">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                        </div>
+                        <h3>Customize Your Products</h3>
+                    </div>
+                    <div class="service-card">
+                        <div class="image-container">
+                            <img src="assets/service-shipping.jpg" alt="Fast, reliable shipping by ocean or air">
+                            <div class="icon-overlay">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                        </div>
+                        <h3>Fast, reliable shipping by ocean or air</h3>
+                    </div>
+                    <div class="service-card">
+                        <div class="image-container">
+                            <img src="assets/service-monitoring.jpg" alt="Product monitoring and inspection">
+                            <div class="icon-overlay">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                        </div>
+                        <h3>Product monitoring and inspection</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="suppliers-by-region">
+            <div class="container">
+                <h2>Suppliers by region</h2>
+                <ul class="region-list">
+                    <li>
+                        <img src="assets/flag-arabic-emirates.png" alt="Arabic Emirates">
+                        <span>Arabic Emirates</span>
+                        <span class="domain">shopname.ae</span>
+                    </li>
+                    <li>
+                        <img src="assets/flag-australia.png" alt="Australia">
+                        <span>Australia</span>
+                        <span class="domain">shopname.ae</span>
+                    </li>
+                    <li>
+                        <img src="assets/flag-united-states.png" alt="United States">
+                        <span>United States</span>
+                        <span class="domain">shopname.ae</span>
+                    </li>
+                    <li>
+                        <img src="assets/flag-russia.png" alt="Russia">
+                        <span>Russia</span>
+                        <span class="domain">shopname.ru</span>
+                    </li>
+                    <li>
+                        <img src="assets/flag-italy.png" alt="Italy">
+                        <span>Italy</span>
+                        <span class="domain">shopname.it</span>
+                    </li>
+                    <li>
+                        <img src="assets/flag-denmark.png" alt="Denmark">
+                        <span>Denmark</span>
+                        <span class="domain">denmark.com.dk</span>
+                    </li>
+                    <li>
+                        <img src="assets/flag-france.png" alt="France">
+                        <span>France</span>
+                        <span class="domain">shopname.com.fr</span>
+                    </li>
+                    <li>
+                        <img src="assets/flag-arabic-emirates.png" alt="Arabic Emirates">
+                        <span>Arabic Emirates</span>
+                        <span class="domain">shopname.ae</span>
+                    </li>
+                    <li>
+                        <img src="assets/flag-china.png" alt="China">
+                        <span>China</span>
+                        <span class="domain">shopname.ae</span>
+                    </li>
+                    <li>
+                        <img src="assets/flag-great-britain.png" alt="Great Britain">
+                        <span>Great Britain</span>
+                        <span class="domain">shopname.co.uk</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="newsletter-subscription">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Subscribe on our newsletter</h2>
+                    <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+                    <div class="subscription-form">
+                        <div class="input-wrapper">
+                            <i class="far fa-envelope"></i>
+                            <input type="email" placeholder="Email">
+                        </div>
+                        <button class="button subscribe-button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <div class="logo-container">
+                    <img src="assets/logo-footer.png" alt="Brand Logo" class="logo-footer" />
+                </div>
+                <p class="company-info">Best information about the company goes here but now lorem ipsum is</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><img src="assets/facebook-circular.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="assets/twitter-circular.png" alt="Twitter"></a>
+                    <a href="#" target="_blank"><img src="assets/linkedin-circular.png" alt="LinkedIn"></a>
+                    <a href="#" target="_blank"><img src="assets/instagram-circular.png" alt="Instagram"></a>
+                    <a href="#" target="_blank"><img src="assets/youtube-circular.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Money Refund</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For users</h4>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">My Orders</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-section get-app">
+                <h4>Get app</h4>
+                <a href="#" class="app-store-link"><img src="assets/app-store-badge.png" alt="Download on the App Store"></a>
+                <a href="#" class="google-play-link"><img src="assets/google-play-badge.png" alt="Get it on Google Play"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-container">
+                <p>© 2025 Ecommerce.</p>
+                <div class="language-select">
+                    <img src="assets/english-flag.png" alt="English">
+                    <span>English</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const categorySelect = document.getElementById('categorySelect');
+        const searchButton = document.querySelector('.search-button');
+
+        searchButton.addEventListener('click', navigateToProducts);
+        categorySelect.addEventListener('change', function() {
+            if (this.value === 'clothing') {
+                navigateToProducts('clothing');
+            } else if (this.value === 'electronics') {
+                navigateToProducts('electronics');
+            } else {
+                navigateToProducts('all'); // Or however you want to handle "All Category"
+            }
+        });
+
+        function navigateToProducts(category) {
+            let url = 'product.html';
+            if (category && category !== 'all') {
+                url += `?category=${category}`;
+            }
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
+======================================= product.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Accessories - Ecommerce</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Basic structure - the main styling will be in style.css */
+        .product-listing-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sidebar {
+            width: 250px;
+        }
+
+        .product-grid-container {
+            flex-grow: 1;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        
+
+        .product-image {
+            width: 100%;
+            display: block;
+        }
+
+        .favorite-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2rem;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .favorite-icon.active {
+            color: #e44d26;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 8px;
+        }
+
+        .product-details-link {
+            color: #007bff;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .product-details-link:hover {
+            text-decoration: underline;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .pagination a, .pagination span {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .pagination a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .pagination .current {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+        /* Basic sidebar styling - more detailed in style.css */
+        .sidebar-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .price-range-inputs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .price-range-inputs input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 80px;
+            font-size: 0.9rem;
+        }
+
+        .price-range-inputs button {
+            padding: 4px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .price-range-inputs button:hover {
+            background-color: #0056b3;
+        }
+
+        .filter-link {
+            display: block;
+            color: #007bff;
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-top: 5px;
+        }
+
+        .filter-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="/" class="logo-link">
+                <img src="assets/logo.png" alt="Logo" class="logo" />
+            </a>
+            <div class="search-container">
+                <input type="text" placeholder="Search products..." class="search-bar" />
+                <select class="category-dropdown" id="categorySelect">
+                    <option value="all">All Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                  
+                </select>
+                <button class="search-button">Search</button>
+            </div>
+            <nav class="menu">
+                <a href="#">
+                    <img src="assets/profile-icon.png" alt="Profile" class="nav-icon">
+                    Profile
+                </a>
+                <a href="#">
+                    <img src="assets/message-icon.png" alt="Message" class="nav-icon">
+                    Message
+                </a>
+                <a href="#">
+                    <img src="assets/heart-icon.png" alt="Orders" class="nav-icon">
+                    Orders
+                </a>
+                <a href="cart.html" id="cartLink">
+                    <img src="assets/cart-icon.png" alt="My Cart" class="nav-icon">
+                    My Cart
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="top-navigation centered">
+        <div class="nav-items">
+            <button class="category-menu">
+                <i class="fas fa-bars"></i>
+                <span>All category</span>
+            </button>
+            <a href="#">Hot offers</a>
+            <a href="#">Gift boxes</a>
+            <a href="#">Projects</a>
+            <a href="#">Menu item</a>
+            <div class="dropdown">
+                <button class="dropdown-toggle">
+                    Help
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+        </div>
+        <div class="right-actions">
+            <div class="language-currency">
+                <span>English, USD</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ship-to">
+                <span>Ship to</span>
+                <img src="assets/flag-germany.png" alt="Germany">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span>></span>
+            <a href="/clothing">Clothing</a>
+            <span>></span>
+            <a href="/men-wear">Men's wear</a>
+            <span>></span>
+            <span>Summer clothing</span>
+        </nav>
+    </div>
+
+    <div class="product-listing-container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Category</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="mobile-accessory" checked> Mobile accessory</label>
+                    <label><input type="checkbox" value="electronics"> Electronics</label>
+                    <label><input type="checkbox" value="smartphones"> Smartphones</label>
+                    <label><input type="checkbox" value="modern-tech"> Modern tech</label>
+                    <a href="#" class="filter-link">See all</a>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Brands</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="samsung" checked> Samsung</label>
+                    <label><input type="checkbox" value="apple"> Apple</label>
+                    <label><input type="checkbox" value="huawei"> Huawei</label>
+                    <label><input type="checkbox" value="poco"> Poco</label>
+                    <label><input type="checkbox" value="lenovo"> Lenovo</label>
+                    <a href="#" class="filter-link">See all</a>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Features</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="metallic" checked> Metallic</label>
+                    <label><input type="checkbox" value="plastic-cover"> Plastic cover</label>
+                    <label><input type="checkbox" value="8gb-ram"> 8GB RAM</label>
+                    <label><input type="checkbox" value="super-power"> Super power</label>
+                    <label><input type="checkbox" value="large-memory"> Large memory</label>
+                    <a href="#" class="filter-link">See all</a>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Price range</h2>
+                <div class="price-range-inputs">
+                    <input type="number" id="min-price" placeholder="Min">
+                    <span>-</span>
+                    <input type="number" id="max-price" placeholder="Max">
+                    <button>Apply</button>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Condition</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="any" checked> Any</label>
+                    <label><input type="checkbox" value="refurbished"> Refurbished</label>
+                    <label><input type="checkbox" value="brand-new"> Brand new</label>
+                    <label><input type="checkbox" value="old-items"> Old items</label>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">Ratings</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" value="4-star"> <i class="fas fa-star" style="color: #ffc107;"></i><i class="fas fa-star" style="color: #ffc107;"></i><i class="fas fa-star" style="color: #ffc107;"></i><i class="fas fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i> & up</label>
+                    <label><input type="checkbox" value="3-star"> <i class="fas fa-star" style="color: #ffc107;"></i><i class="fas fa-star" style="color: #ffc107;"></i><i class="fas fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i> & up</label>
+                    <label><input type="checkbox" value="2-star"> <i class="fas fa-star" style="color: #ffc107;"></i><i class="fas fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i> & up</label>
+                    <label><input type="checkbox" value="1-star"> <i class="fas fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i><i class="far fa-star" style="color: #ffc107;"></i> & up</label>
+                </div>
+            </div>
+        </aside>
+
+        <div class="product-grid-container">
+            <div class="filter-summary-bar">
+                <div class="summary-info">
+                    <span id="itemCount"></span>
+                </div>
+                <div class="filter-options">
+                    <label>
+                        <input type="checkbox" id="verifiedOnly"> Verified only
+                    </label>
+                    <div class="sort-dropdown">
+                        <label for="sort-by">Sort by:</label>
+                        <select id="sort-by">
+                            <option value="featured">Featured</option>
+                            <option value="price-low-high">Price: Low to High</option>
+                            <option value="price-high-low">Price: High to Low</option>
+                        </select>
+                    </div>
+                    <div class="view-options">
+                        <button class="grid-view active"><i class="fas fa-th-large"></i></button>
+                        <button class="list-view"><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+                <div class="applied-filters" id="appliedFilters">
+                    <a href="#" class="clear-filter" id="clearFilter">Clear all filter</a>
+                </div>
+            </div>
+
+            
+            <style>
+                .filter-summary-bar {
+                    background-color: #f8f9fa;
+                    padding: 15px 20px;
+                    border-bottom: 1px solid #eee;
+                    display: flex;
+                    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+                    align-items: center;
+                    gap: 15px; /* Spacing between direct children */
+                }
+
+                .summary-info {
+                    font-size: 0.95rem;
+                    color: #333;
+                }
+
+                .filter-options {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+
+                .filter-options label {
+                    display: flex;
+                    align-items: center;
+                    font-size: 0.9rem;
+                    color: #555;
+                    cursor: pointer;
+                }
+
+                .filter-options input[type="checkbox"] {
+                    margin-right: 5px;
+                }
+
+                .sort-dropdown label {
+                    font-size: 0.9rem;
+                    color: #555;
+                    margin-right: 5px;
+                }
+
+                .sort-dropdown select {
+                    padding: 8px 12px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    font-size: 0.9rem;
+                    color: #333;
+                    cursor: pointer;
+                }
+
+                .view-options button {
+                    background: none;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    padding: 8px 10px;
+                    font-size: 0.9rem;
+                    color: #555;
+                    cursor: pointer;
+                    outline: none;
+                }
+
+                .view-options button:hover {
+                    background-color: #eee;
+                }
+
+                .view-options button.active {
+                    background-color: #007bff;
+                    color: #fff;
+                    border-color: #007bff;
+                }
+
+                .applied-filters {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    margin-top: 10px; /* Add some space if it wraps */
+                }
+
+                .filter-tag {
+                    background-color: #e9ecef;
+                    color: #333;
+                    border-radius: 4px;
+                    padding: 6px 10px;
+                    font-size: 0.85rem;
+                    display: inline-flex;
+                    align-items: center;
+                }
+
+                .remove-filter {
+                    background: none;
+                    border: none;
+                    color: #777;
+                    font-size: 0.8rem;
+                    margin-left: 5px;
+                    cursor: pointer;
+                    outline: none;
+                }
+
+                .remove-filter:hover {
+                    color: #333;
+                }
+
+                .clear-filter {
+                    color: #007bff;
+                    font-size: 0.9rem;
+                    text-decoration: none;
+                }
+
+                .clear-filter:hover {
+                    text-decoration: underline;
+                }
+
+                /* Responsive adjustments */
+                @media (max-width: 768px) {
+                    .filter-summary-bar {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+
+                    .filter-options {
+                        width: 100%;
+                        justify-content: space-between;
+                    }
+
+                    .applied-filters {
+                        margin-top: 15px;
+                    }
+                }
+            </style>
+            <div class="product-grid" id="productGrid">
+                </div>
+            <div class="pagination-controls">
+                <div class="items-per-page">
+                    <label for="items-count">Page</label>
+                    <select id="items-count">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="pagination-links" id="paginationLinks">
+                    </div>
+            </div>
+            <div class="products-and-pagination-container">
+                <div class="product-list">
+                    </div>
+                <div class="pagination-controls">
+                    </div>
+            </div>
+            <style>
+                .pagination-controls {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end; /* Align to the right as in the image */
+                    padding: 15px 0;
+                    font-size: 0.9rem;
+                    color: #555;
+                }
+
+                .items-per-page {
+                    display: flex;
+                    align-items: center;
+                    margin-right: 20px;
+                }
+
+                .items-per-page label {
+                    margin-right: 5px;
+                }
+
+                .items-per-page select {
+                    padding: 6px 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    font-size: 0.9rem;
+                    color: #333;
+                    cursor: pointer;
+                }
+
+                .pagination-links {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .pagination-arrow,
+                .pagination-number {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 8px 12px;
+                    margin-left: 5px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    color: #333;
+                    cursor: pointer;
+                    min-width: 30px; /* Ensure consistent size */
+                    text-align: center;
+                }
+
+                .pagination-arrow:hover,
+                .pagination-number:hover {
+                    background-color: #f8f9fa;
+                }
+
+                .pagination-number.current {
+                    background-color: #e9ecef; /* Light grey for current page */
+                    color: #333;
+                    border-color: #ddd;
+                    cursor: default;
+                }
+
+                .pagination-number.current:hover {
+                    background-color: #e9ecef; /* Keep the same on hover */
+                }
+
+                .pagination-arrow {
+                    font-size: 0.8rem;
+                }
+
+                .products-and-pagination-container {
+                    display: flex;
+                    flex-direction: column; /* Stack products and pagination */
+                    align-items: flex-end; /* Align items to the right */
+                }
+
+                .pagination-controls {
+                    /* Existing styles for pagination controls */
+                    margin-top: 20px; /* Push pagination to the bottom */
+                }
+            </style>
+
+
+        </div>
+    </div>
+<section class="newsletter-subscription">
+    <div class="container">
+        <div class="newsletter-content">
+            <h2>Subscribe on our newsletter</h2>
+            <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+            <div class="subscription-form">
+                <div class="input-wrapper">
+                    <i class="far fa-envelope"></i>
+                    <input type="email" placeholder="Email">
+                </div>
+                <button class="button subscribe-button">Subscribe</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <div class="logo-container">
+                    <img src="assets/logo-footer.png" alt="Brand Logo" class="logo-footer" />
+
+                </div>
+                <p class="company-info">Best information about the company goes here but now lorem ipsum is</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><img src="assets/facebook-circular.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="assets/twitter-circular.png" alt="Twitter"></a>
+                    <a href="#" target="_blank"><img src="assets/linkedin-circular.png" alt="LinkedIn"></a>
+                    <a href="#" target="_blank"><img src="assets/instagram-circular.png" alt="Instagram"></a>
+                    <a href="#" target="_blank"><img src="assets/youtube-circular.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Money Refund</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For users</h4>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">My Orders</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-section get-app">
+                <h4>Get app</h4>
+                <a href="#" class="app-store-link"><img src="assets/app-store-badge.png" alt="Download on the App Store"></a>
+                <a href="#" class="google-play-link"><img src="assets/google-play-badge.png" alt="Get it on Google Play"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-container">
+                <p>© 2025 Ecommerce.</p>
+                <div class="language-select">
+                    <img src="assets/english-flag.png" alt="English">
+                    <span>English</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+ <script>
+        function getCategoryFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('category');
+        }
+
+        function displayProducts(products) {
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = ''; // Clear previous products
+            if (products.length === 0) {
+                productGrid.innerHTML = '<p>No products found in this category.</p>';
+                document.getElementById('itemCount').textContent = '0 items';
+                document.getElementById('appliedFilters').innerHTML = '<a href="#" class="clear-filter" id="clearFilter">Clear all filter</a>';
+                return;
+            }
+
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+                productCard.innerHTML = `
+                    <div class="product-image-container">
+                        <img src="${product.image}" alt="${product.title}" class="product-image">
+                        <i class="fas fa-heart favorite-icon"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-price">$${product.price}${product.oldPrice ? ` <span style="color: #ccc; text-decoration: line-through;">$${product.oldPrice}</span>` : ''}</p>
+                        <p><i class="fas fa-star" style="color: #ffc107;"></i> ${product.rating} (${product.orders} orders) - <span style="color: #28a745;">${product.shipping}</span></p>
+                        <p style="font-size: 0.8rem; color: #777; margin-bottom: 10px;">${product.description.substring(0, 80)}...</p>
+                        <a href="product-details.html?id=${product.id}" class="product-details-link">View details</a>
+                    </div>
+                `;
+                productGrid.appendChild(productCard);
+            });
+            document.getElementById('itemCount').textContent = `${products.length} items`;
+
+            // Add event listeners to favorite icons
+            const favoriteIcons = document.querySelectorAll('.favorite-icon');
+            favoriteIcons.forEach(icon => {
+                icon.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    // You would typically handle saving to favorites here
+                });
+            });
+        }
+
+        function updateAppliedFilters(category) {
+            const appliedFiltersDiv = document.getElementById('appliedFilters');
+            appliedFiltersDiv.innerHTML = '';
+            if (category && category !== 'all') {
+                const filterTag = document.createElement('span');
+                filterTag.classList.add('filter-tag');
+                filterTag.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+                const removeButton = document.createElement('button');
+                removeButton.classList.add('remove-filter');
+                removeButton.innerHTML = '<i class="fas fa-times"></i>';
+                removeButton.addEventListener('click', () => {
+                    const url = new URL(window.location.href);
+                    url.searchParams.delete('category');
+                    window.location.href = url.toString();
+                });
+                filterTag.appendChild(removeButton);
+                appliedFiltersDiv.appendChild(filterTag);
+            }
+            const clearAll = document.createElement('a');
+            clearAll.href = 'product.html';
+            clearAll.classList.add('clear-filter');
+            clearAll.id = 'clearFilter';
+            clearAll.textContent = 'Clear all filter';
+            appliedFiltersDiv.appendChild(clearAll);
+        }
+
+        function applyPriceFilter() {
+            const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
+            const filteredByPrice = currentProducts.filter(product => product.price >= minPrice && product.price <= maxPrice);
+            displayProducts(filteredByPrice);
+        }
+
+        // Sample product data (replace with your actual data fetching)
+        const allProducts = [
+            { id: 1, category: 'electronics', title: 'Smartwatch X', price: 199.00, oldPrice: 249.00, rating: 4.8, orders: 250, shipping: 'Free Shipping', image: 'assets/recommended-smartwatch.jpg', description: 'A high-performance smartwatch with advanced features.' },
+            { id: 2, category: 'clothing', title: 'Men\'s Polo Shirt', price: 35.00, rating: 4.2, orders: 180, shipping: 'Free Shipping', image: 'assets/recommended-polo.jpg', description: 'A comfortable and stylish polo shirt for men.' },
+            
+            { id: 4, category: 'electronics', title: 'Head Phones', price: 129.00, rating: 4.6, orders: 220, shipping: 'Free Shipping', image: 'assets/recommended-headphones.jpg', description: 'Premium wireless earbuds with noise cancellation.' },
+            { id: 5, category: 'clothing', title: 'Blue Shorts', price: 49.99, rating: 4.4, orders: 150, shipping: 'Free Shipping', image: 'assets/recommended-jacket.jpg', description: 'A beautiful summer dress for any occasion.' },
+           
+            { id: 7, category: 'electronics', title: 'Electric Kettle', price: 79.00, rating: 4.5, orders: 200, shipping: 'Free Shipping', image: 'assets/recommended-kettle.jpg', description: 'A portable Bluetooth speaker with excellent sound quality.' },
+            { id: 8, category: 'clothing', title: 'Blue Blazer', price: 59.00, rating: 4.3, orders: 170, shipping: 'Free Shipping', image: 'assets/recommended-blazer.jpg', description: 'Comfortable and durable casual jeans for everyday wear.' },
+            
+            { id: 10, category: 'electronics', title: 'Gaming Set', price: 170.00, rating: 4.7, orders: 350, shipping: 'Free Shipping', image: 'assets/Product1.jpg', description: 'A durable and reliable USB charging cable.' },
+            { id: 11, category: 'clothing', title: 'Brown Jacket', price: 48.00, rating: 4.1, orders: 160, shipping: 'Free Shipping', image: 'assets/recommended-jeans-shorts.jpg', description: 'A warm and cozy hooded sweatshirt.' },
+            
+            { id: 13, category: 'electronics', title: 'Laptop', price: 250.00, rating: 4.7, orders: 350, shipping: 'Free Shipping', image: 'assets/7.jpg', description: 'A durable and reliable USB charging cable.' },
+            { id: 14, category: 'clothing', title: 'Vallet', price: 4.00, rating: 4.1, orders: 160, shipping: 'Free Shipping', image: 'assets/recommended-wallet.jpg', description: 'A warm and cozy hooded sweatshirt.' },
+            
+            { id: 15, category: 'electronics', title: 'Smart Phone', price: 90.99, rating: 4.7, orders: 350, shipping: 'Free Shipping', image: 'assets/1.jpg', description: 'A durable and reliable USB charging cable.' },
+            { id: 16, category: 'clothing', title: 'Blue Shirt', price: 52.00, rating: 4.1, orders: 160, shipping: 'Free Shipping', image: 'assets/9.jpg', description: 'A warm and cozy hooded sweatshirt.' },
+            
+            { id: 17, category: 'electronics', title: 'Phone', price: 75.99, rating: 4.7, orders: 350, shipping: 'Free Shipping', image: 'assets/2.jpg', description: 'A durable and reliable USB charging cable.' },
+            { id: 18, category: 'clothing', title: 'Blue Shorts', price: 35.00, rating: 4.1, orders: 160, shipping: 'Free Shipping', image: 'assets/12.PNG', description: 'A warm and cozy hooded sweatshirt.' },
+            
+            { id: 19, category: 'electronics', title: 'GoPro', price: 80.99, rating: 4.7, orders: 350, shipping: 'Free Shipping', image: 'assets/camera.jpg', description: 'A durable and reliable USB charging cable.' },
+            { id: 20, category: 'clothing', title: '3 Piece coat', price: 40.00, rating: 4.1, orders: 160, shipping: 'Free Shipping', image: 'assets/11.PNG', description: 'A warm and cozy hooded sweatshirt.' },
+            
+            { id: 21, category: 'electronics', title: 'Apple', price: 120.99, rating: 4.7, orders: 350, shipping: 'Free Shipping', image: 'assets/4.jpg', description: 'A durable and reliable USB charging cable.' },
+            { id: 22, category: 'clothing', title: 'White Shirt', price: 45.00, rating: 4.1, orders: 160, shipping: 'Free Shipping', image: 'assets/10.PNG', description: 'A warm and cozy hooded sweatshirt.' },
+            
+        ];
+
+        let currentProducts = [...allProducts]; // Store a copy for filtering
+
+        const categorySelect = document.getElementById('categorySelect');
+        if (categorySelect) {
+            categorySelect.addEventListener('change', function() {
+                const selectedCategory = this.value;
+                const url = new URL(window.location.href);
+                if (selectedCategory === 'all') {
+                    url.searchParams.delete('category');
+                } else {
+                    url.searchParams.set('category', selectedCategory);
+                }
+                window.location.href = url.toString();
+            });
+        }
+
+        const selectedCategory = getCategoryFromURL();
+        let filteredProducts = [];
+
+        if (selectedCategory && selectedCategory !== 'all') {
+            filteredProducts = allProducts.filter(product => product.category === selectedCategory);
+        } else {
+            filteredProducts = allProducts;
+        }
+
+        currentProducts = [...filteredProducts]; // Update current products after category filter
+        displayProducts(currentProducts);
+        updateAppliedFilters(selectedCategory);
+
+        const applyPriceFilterButton = document.getElementById('apply-price-filter');
+        if (applyPriceFilterButton) {
+            applyPriceFilterButton.addEventListener('click', applyPriceFilter);
+        }
+    </script>
+
+</body>
+</html>
+======================================= product-details.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mens Long Sleeve T-shirt - Ecommerce</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Basic CSS for product details page - extend this in style.css */
+        .product-details-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align thumbnails to the left */
+        }
+
+        .main-image-container {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .main-image {
+            width: 100%;
+            display: block;
+            aspect-ratio: 4/5; /* Maintain aspect ratio */
+            object-fit: cover;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto; /* Enable horizontal scrolling for thumbnails */
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .thumbnail.active {
+            opacity: 1;
+            border-color: #007bff;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .in-stock {
+            color: #28a745;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .product-rating i {
+            margin-right: 3px;
+        }
+
+        .rating-count {
+            color: #777;
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        .product-price-section {
+            margin-bottom: 20px;
+        }
+
+        .price-original {
+            color: #777;
+            text-decoration: line-through;
+            font-size: 1.1rem;
+            margin-right: 10px;
+        }
+
+        .price-discounted {
+            color: #e44d26;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .price-vat {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .product-options label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .product-options select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #333;
+            appearance: none; /* Remove default arrow */
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23555" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 1em;
+        }
+
+        .add-to-cart-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #0056b3;
+        }
+
+        .product-meta {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .product-meta strong {
+            color: #333;
+        }
+
+        /* Supplier Info Sidebar */
+        .supplier-info {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .supplier-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .supplier-details p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .supplier-details i {
+            font-size: 0.8rem;
+        }
+
+        .inquire-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 15px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .inquire-button:hover {
+            background-color: #1e7e34;
+        }
+
+        .seller-profile-link,
+        .save-item-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #007bff;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .seller-profile-link:hover,
+        .save-item-link:hover {
+            text-decoration: underline;
+        }
+
+        .save-item-link i {
+            margin-right: 5px;
+        }
+
+        /* Product Details Tabs */
+        .product-details-tabs-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .product-details-tabs {
+            border-bottom: 1px solid #eee;
+            display: flex;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #555;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .tab-button.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .tab-content {
+            padding: 20px 0;
+            display: none; /* Initially hide all tab content */
+        }
+
+        .tab-content.active {
+            display: block; /* Show active tab content */
+        }
+
+        .tab-content p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .product-attributes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-attributes li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dotted #eee;
+        }
+
+        .product-attributes li:last-child {
+            border-bottom: none;
+        }
+
+        .attribute-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .attribute-value {
+            color: #555;
+        }
+
+        /* Related Products */
+        .related-products {
+            margin-top: 40px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .related-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .related-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .related-product-card {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .related-product-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            aspect-ratio: 1/1;
+            object-fit: contain;
+        }
+
+        .related-product-title {
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 5px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .related-product-price {
+            font-size: 0.95rem;
+            color: #e44d26;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="/" class="logo-link">
+                <img src="assets/logo.png" alt="Logo" class="logo" />
+            </a>
+            <div class="search-container">
+                <input type="text" placeholder="Search products..." class="search-bar" />
+                <select class="category-dropdown">
+                    <option value="all">All Category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="books">Books</option>
+                </select>
+                <button class="search-button">Search</button>
+            </div>
+            
+            <nav class="menu">
+                <a href="#">
+                    <img src="assets/profile-icon.png" alt="Profile" class="nav-icon">
+                    Profile
+                </a>
+                <a href="#">
+                    <img src="assets/message-icon.png" alt="Message" class="nav-icon">
+                    Message
+                </a>
+                <a href="#">
+                    <img src="assets/heart-icon.png" alt="Orders" class="nav-icon">
+                    Orders
+                </a>
+                <a href="cart.html" id="cartLink">
+                    <img src="assets/cart-icon.png" alt="My Cart" class="nav-icon">
+                    My Cart
+                    
+                </a>
+            </nav>
+            
+        </div>
+    </header>
+
+    <div class="top-navigation centered">
+        <div class="nav-items">
+            <button class="category-menu">
+                <i class="fas fa-bars"></i>
+                <span>All category</span>
+            </button>
+            <a href="#">Hot offers</a>
+            <a href="#">Gift boxes</a>
+            <a href="#">Projects</a>
+            <a href="#">Menu item</a>
+            <div class="dropdown">
+                <button class="dropdown-toggle">
+                    Help
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+        </div>
+        <div class="right-actions">
+            <div class="language-currency">
+                <span>English, USD</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="ship-to">
+                <span>Ship to</span>
+                <img src="assets/flag-germany.png" alt="Germany">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            <span>></span>
+            <a href="/clothing">Clothing</a>
+            <span>></span>
+            <a href="/men-wear">Men's wear</a>
+            <span>></span>
+            <span>Summer clothing</span>
+        </nav>
+    </div>
+
+    <div class="product-details-container">
+        <div class="product-images">
+            <div class="main-image-container">
+                <img src="" alt="Mens Long Sleeve T-shirt" class="main-image">
+            </div>
+            <div class="thumbnail-images">
+                
+            
+            </div>
+        </div>
+        <div class="product-info">
+            <h1 class="product-title">Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</h1>
+            <p class="in-stock"><i class="fas fa-check-circle"></i> In stock</p>
+            <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-count">32 Reviews</span>
+            </div>
+            <div class="product-price-section">
+                <span class="price-discounted">$80.00</span>
+                <span class="price-original">$98.00</span>
+                <span class="price-vat">$76.00 incl. VAT</span>
+            </div>
+            <div class="product-options">
+                <label for="color-select">Color</label>
+                <select id="color-select">
+                    <option>Classic blue</option>
+                    <option>Modern mica</option>
+                </select>
+                <label for="size-select">Size</label>
+                <select id="size-select">
+                    <option>Modern mica</option>
+                    <option>Classic blue</option>
+                </select>
+            </div>
+            <button class="add-to-cart-button">Send Inquiry</button>
+            <p class="product-meta"><strong>Type:</strong> Negotiable</p>
+            <p class="product-meta"><strong>Material:</strong> Plastic material</p>
+            <p class="product-meta"><strong>Design:</strong> Modern mica</p>
+            <p class="product-meta"><strong>Customization:</strong> Graphic design and design custom packages</p>
+            <p class="product-meta"><strong>Protection:</strong> Refund Policy</p>
+            <p class="product-meta"><strong>Warranty:</strong> 2 years full warranty</p>
+        </div>
+        <div class="supplier-info">
+            <h2 class="supplier-title">Supplier</h2>
+            <p class="supplier-details"><strong>Guangxi Trading LLC</strong></p>
+            <p class="supplier-details"><i class="fas fa-map-marker-alt"></i> Germany, Berlin</p>
+            <p class="supplier-details"><i class="fas fa-star"></i> 4.3 (228 Sales)</p>
+            <p class="supplier-details"><i class="fas fa-truck"></i> Worldwide shipping</p>
+            <button class="inquire-button">Send Inquiry</button>
+            <a href="#" class="seller-profile-link">Seller's profile</a>
+            <a href="#" class="save-item-link"><i class="fas fa-heart"></i> Save for later</a>
+        </div>
+    </div>
+
+    <div class="product-details-tabs-container">
+        <div class="product-details-tabs">
+            <button class="tab-button active" onclick="showTab('description')">Description</button>
+            <button class="tab-button" onclick="showTab('reviews')">Reviews</button>
+            <button class="tab-button" onclick="showTab('shipping')">Shipping</button>
+            <button class="tab-button" onclick="showTab('about-seller')">About seller</button>
+        </div>
+        <div id="description" class="tab-content active">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            <div class="product-attributes">
+                <ul>
+                    <li><span class="attribute-name">Model</span><span class="attribute-value">40765847</span></li>
+                    <li><span class="attribute-name">SKU</span><span class="attribute-value">RF-DRT-8765</span></li>
+                    <li><span class="attribute-name">Certificate</span><span class="attribute-value">ISO-8989/1212</span></li>
+                    <li><span class="attribute-name">Size</span><span class="attribute-value">34cm x 450mm x 19mm</span></li>
+                    <li><span class="attribute-name">Memory</span><span class="attribute-value">36GB RAM</span></li>
+                </ul>
+            </div>
+            <ul>
+                <li><i class="fas fa-check-square"></i> Some great feature name here</li>
+                <li><i class="fas fa-check-square"></i> Lorem ipsum dolor sit, consectetur</li>
+                <li><i class="fas fa-check-square"></i> Duis aute irure dolor in reprehenderit</li>
+            </ul>
+        </div>
+        <div id="reviews" class="tab-content">
+            <p>No reviews yet.</p>
+        </div>
+        <div id="shipping" class="tab-content">
+            <p>Shipping information will be displayed here.</p>
+        </div>
+        <div id="about-seller" class="tab-content">
+            <p>Information about the seller will be displayed here.</p>
+        </div>
+    </div>
+
+    <div class="related-products">
+        <h2 class="related-title">Related products</h2>
+        <div class="related-products-grid">
+            <div class="related-product-card">
+                <img src="https://via.placeholder.com/150x150/336699" alt="Related Product 1" class="related-product-image">
+                <h3 class="related-product-title">Xiaomi Redmi 8 Original</h3>
+                <p class="related-product-price">$32.00 - $40.00</p>
+            </div>
+            <div class="related-product-card">
+                <img src="https://via.placeholder.com/150x150/4477AA" alt="Related Product 2" class="related-product-image">
+                <h3 class="related-product-title">Xiaomi Redmi 8 Original</h3>
+                <p class="related-product-price">$32.00 - $40.00</p>
+            </div>
+            <div class="related-product-card">
+                <img src="https://via.placeholder.com/150x150/5588BB" alt="Related Product 3" class="related-product-image">
+                <h3 class="related-product-title">Xiaomi Redmi 8 Original</h3>
+                <p class="related-product-price">$32.00 - $40.00</p>
+            </div>
+            <div class="related-product-card">
+                <img src="https://via.placeholder.com/150x150/6699CC" alt="Related Product 4" class="related-product-image">
+                <h3 class="related-product-title">Xiaomi Redmi 8 Original</h3>
+                <p class="related-product-price">$32.00 - $40.00</p>
+            </div>
+            <div class="related-product-card">
+                <img src="https://via.placeholder.com/150x150/77AADD" alt="Related Product 5" class="related-product-image">
+                <h3 class="related-product-title">Xiaomi Redmi 8 Original</h3>
+                <p class="related-product-price">$32.00 - $40.00</p>
+            </div>
+            <div class="related-product-card">
+                <img src="https://via.placeholder.com/150x150/88BBEB" alt="Related Product 6" class="related-product-image">
+                <h3 class="related-product-title">Xiaomi Redmi 8 Original</h3>
+                <p class="related-product-price">$32.00 - $40.00</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #007bff; color: #fff; padding: 20px; margin-top: 30px; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h2 style="font-size: 1.2rem; margin-bottom: 10px;">Super discount on more than 100 USD</h2>
+                <p style="font-size: 0.9rem;">Have you ever finally just write dummy info</p>
+            </div>
+            <button style="background-color: #ffa500; color: #fff; border: none; border-radius: 6px; padding: 10px 20px; font-size: 1rem; cursor: pointer;">Shop now</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <div class="logo-container">
+                    <img src="assets/logo-footer.png" alt="Brand Logo" class="logo-footer" />
+                </div>
+                <p class="company-info">Best information about the company goes here but now lorem ipsum is</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><img src="assets/facebook-circular.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="assets/twitter-circular.png" alt="Twitter"></a>
+                    <a href="#" target="_blank"><img src="assets/linkedin-circular.png" alt="LinkedIn"></a>
+                    <a href="#" target="_blank"><img src="assets/instagram-circular.png" alt="Instagram"></a>
+                    <a href="#" target="_blank"><img src="assets/youtube-circular.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Money Refund</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For users</h4>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">My Orders</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-section get-app">
+                <h4>Get app</h4>
+                <a href="#" class="app-store-link"><img src="assets/app-store-badge.png" alt="Download on the App Store"></a>
+                <a href="#" class="google-play-link"><img src="assets/google-play-badge.png" alt="Get it on Google Play"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-container">
+                <p>© 2025 Ecommerce.</p>
+                <div class="language-select">
+                    <img src="assets/english-flag.png" alt="English">
+                    <span>English</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+
+ <script>
+        function changeMainImage(imageSrc) {
+            document.querySelector('.main-image').src = imageSrc;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            document.querySelector(`.thumbnail[onclick="changeMainImage('${imageSrc}')"]`).classList.add('active');
+        }
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+
+        function getProductIdFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id'));
+        }
+
+        const allProducts = [
+    {
+        id: 1,
+        category: 'electronics',
+        title: 'Smartwatch X',
+        price: 199.00,
+        oldPrice: 249.00,
+        rating: 4.8,
+        orders: 250,
+        shipping: 'Free Shipping',
+        image: 'assets/smartwatch.png', // Main image for Smartwatch X
+        thumbnails: [ // Thumbnails for Smartwatch X
+            'assets/smartwatch.png',
+            'assets/smartwatch.png',
+            'assets/smartwatch.png'
+            
+        ],
+        description: 'A high-performance smartwatch with advanced features including heart rate monitoring, GPS tracking, and sleep analysis. Its sleek design and durable materials make it perfect for daily wear and intense workouts.',
+        details: {
+            Type: 'Electronics',
+            Material: 'Aluminum Casing, Silicone Strap',
+            Display: 'AMOLED Touchscreen',
+            BatteryLife: 'Up to 7 days',
+            Connectivity: 'Bluetooth 5.0, Wi-Fi, GPS',
+            Sensors: 'Heart Rate, Accelerometer, Gyroscope, Barometer',
+            WaterResistance: '5 ATM',
+            Compatibility: 'iOS 12+ and Android 7.0+',
+            Warranty: '1 year manufacturer warranty',
+            features: [
+                'Heart rate monitor',
+                'GPS tracking',
+                'Sleep tracking',
+                'Notification alerts',
+                'Fitness tracking',
+                'Music control'
+            ],
+            color: ['Black', 'Silver', 'Rose Gold'],
+            size: ['Standard']
+        },
+        supplier: {
+            name: 'Tech Innovators Co.',
+            location: 'USA, California',
+            sales: 500, // Example sales
+            shipping: 'Worldwide',
+            rating: 4.7 // Example supplier rating
+        },
+        related: [4, 7, 10] // IDs of related products
+    },
+    {
+        id: 2,
+        category: 'clothing',
+        title: 'Men\'s Polo Shirt',
+        price: 35.00,
+        oldPrice: 45.00,
+        rating: 4.2,
+        orders: 180,
+        shipping: 'Free Shipping',
+        image: 'assets/recommended-polo.jpg',
+        thumbnails: [ // Example thumbnails for Polo Shirt (add your actual paths)
+            'assets/recommended-polo.jpg',
+            'assets/recommended-polo.jpg',
+            'assets/recommended-polo.jpg'
+        ],
+        description: 'A comfortable and stylish polo shirt for men, made from breathable cotton blend. Perfect for casual wear or semi-formal occasions.',
+        details: {
+            Material: '60% Cotton, 40% Polyester',
+            Style: 'Casual',
+            Neckline: 'Polo Collar',
+            Sleeve: 'Short Sleeve',
+            Season: 'All Seasons',
+            CareInstructions: 'Machine wash cold',
+            color: ['Blue', 'White', 'Black'],
+            size: ['S', 'M', 'L', 'XL']
+        },
+        supplier: {
+            name: 'Fashion Hub Ltd.',
+            location: 'United Kingdom, London',
+            sales: 300,
+            shipping: 'Domestic',
+            rating: 4.1
+        },
+        related: [11, 5, 8]
+    },
+   
+    {
+        id: 4,
+        category: 'Electronics',
+        title: 'Head Phones',
+        price: 129.00,
+        oldPrice:169.00,
+        rating: 4.6,
+        orders: 220,
+        shipping: 'Standard Shipping',
+        image: 'assets/recommended-headphones.jpg',
+        thumbnails: [
+            'assets/recommended-headphones.jpg',
+            'assets/recommended-headphones.jpg',
+            'assets/recommended-headphones.jpg'
+        ],
+        description: 'Modern desk lamp with adjustable brightness and color temperature. Control it via app or voice commands for the perfect lighting.',
+        details: {
+            Power: '12W',
+            Brightness: '800 Lumens',
+            ColorTemperature: '2700K-6500K',
+            Control: 'App, Voice Control (Alexa/Google Assistant)',
+            Material: 'Aluminum Alloy',
+            features: ['Dimmable', 'Timer Function', 'Eye-caring Light'],
+            color: ['Black', 'White'],
+            size: ['Adjustable Arm']
+        },
+        supplier: {
+            name: 'EcoLight Solutions',
+            location: 'Germany, Berlin',
+            sales: 250,
+            shipping: 'Europe Only',
+            rating: 4.5
+        },
+        related: [7, 10, 13]
+    },
+    {
+        id: 5,
+        category: 'clothing',
+        title: 'Blue Shorts',
+        price: 49.99,
+        oldPrice: 55.00,
+        rating: 4.4,
+        orders: 150,
+        shipping: 'Free Shipping',
+        image: 'assets/recommended-jacket.jpg',
+        thumbnails: [
+            'assets/recommended-jacket.jpg',
+            'assets/recommended-jacket.jpg',
+            'assets/recommended-jacket.jpg'
+        ],
+        description: 'High-waisted yoga pants designed for comfort and flexibility. Perfect for workouts, yoga, or everyday casual wear.',
+        details: {
+            Material: '80% Nylon, 20% Spandex',
+            Fit: 'Slim Fit',
+            Waist: 'High-Waisted',
+            Features: 'Moisture-wicking, Four-way stretch',
+            color: ['Black', 'Navy', 'Grey'],
+            size: ['XS', 'S', 'M', 'L', 'XL']
+        },
+        supplier: {
+            name: 'ActiveWear Pro',
+            location: 'Canada, Vancouver',
+            sales: 400,
+            shipping: 'North America',
+            rating: 4.3
+        },
+        related: [2, 11, 8]
+    },
+   
+    {
+        id: 7,
+        category: 'Electronics',
+        title: 'Electric Kettle',
+        price: 79.00,
+        oldPrice: 89.00,
+        rating: 4.5,
+        orders: 200,
+        shipping: 'Heavy Item Shipping',
+        image: 'assets/recommended-kettle.jpg',
+        thumbnails: [
+            'assets/recommended-kettle.jpg',
+            'assets/recommended-kettle.jpg',
+            'assets/recommended-kettle.jpg'
+        ],
+        description: 'Premium ergonomic office chair designed for maximum comfort and support during long working hours. Adjustable features for personalized comfort.',
+        details: {
+            Material: 'Mesh and High-Density Foam',
+            Adjustments: 'Height, Lumbar Support, Armrests',
+            WeightCapacity: 'Up to 300 lbs',
+            Assembly: 'Easy Assembly Required',
+            Warranty: '5 year warranty',
+            color: ['Black', 'Grey'],
+            size: ['Standard']
+        },
+        supplier: {
+            name: 'Comfort Seating Inc.',
+            location: 'USA, Texas',
+            sales: 150,
+            shipping: 'Domestic Only',
+            rating: 4.8
+        },
+        related: [1, 4, 10]
+    },
+    {
+        id: 8,
+        category: 'clothing',
+        title: 'Blue Blazer',
+        price: 59.00,
+        oldPrice: 69.00,
+        rating: 4.3,
+        orders: 170,
+        shipping: 'Free Shipping',
+        image: 'assets/recommended-blazer.jpg',
+        thumbnails: [
+            'assets/recommended-blazer.jpg',
+            'assets/recommended-blazer.jpg',
+            'assets/recommended-blazer.jpg'
+        ],
+        description: 'A cozy and versatile unisex hoodie, perfect for layering or everyday comfort. Made from a soft cotton-poly blend.',
+        details: {
+            Material: '80% Cotton, 20% Polyester',
+            Fit: 'Regular Fit',
+            Features: 'Kangaroo Pocket, Drawstring Hood',
+            Season: 'Autumn, Winter',
+            color: ['Grey', 'Black', 'Navy'],
+            size: ['S', 'M', 'L', 'XL', 'XXL']
+        },
+        supplier: {
+            name: 'Urban Threads',
+            location: 'Canada, Toronto',
+            sales: 350,
+            shipping: 'Worldwide',
+            rating: 4.0
+        },
+        related: [16, 14, 11]
+    },
+   
+    {
+        id: 10,
+        category: 'Electronics',
+        title: 'Gaming set',
+        price: 170.00,
+        oldPrice: 185.00,
+        rating: 4.7,
+        orders: 350,
+        shipping: 'Free Shipping',
+        image: 'assets/Product1.jpg',
+        thumbnails: [
+            'assets/Product1.jpg',
+            'assets/Product1.jpg',
+            'assets/Product1.jpg'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [17, 15, 13]
+    },
+    {
+        id: 11,
+        category: 'clothing',
+        title: 'Brown Jacket',
+        price: 48.00,
+        oldPrice: 79.00,
+        rating: 4.1,
+        orders: 160,
+        shipping: 'Heavy Item Shipping',
+        image: 'assets/recommended-jeans-shorts.jpg',
+        thumbnails: [
+            'assets/recommended-jeans-shorts.jpg',
+            'assets/recommended-jeans-shorts.jpg',
+            'assets/recommended-jeans-shorts.jpg'
+        ],
+        description: 'Experience stunning visuals with this 4K Ultra HD Smart TV. Features built-in streaming apps and voice control.',
+        details: {
+            Resolution: '3840 x 2160 (4K UHD)',
+            ScreenSize: '55 inches',
+            SmartFeatures: 'Built-in Wi-Fi, Streaming Apps, Voice Control',
+            Ports: 'HDMI x3, USB x2',
+            RefreshRate: '60Hz',
+            color: ['Black'],
+            size: ['55-inch']
+        },
+        supplier: {
+            name: 'VisualTech Solutions',
+            location: 'Japan, Tokyo',
+            sales: 120,
+            shipping: 'Worldwide',
+            rating: 4.6
+        },
+        related: [18, 16, 14]
+    },
+     
+    {
+        id: 13,
+        category: 'Electronics',
+        title: 'Laptop',
+        price: 250.00,
+        oldPrice: 285.00,
+        rating: 4.7,
+        orders: 140,
+        shipping: 'Free Shipping',
+        image: 'assets/7.jpg',
+        thumbnails: [
+            'assets/7.jpg',
+            'assets/7.jpg',
+            'assets/7.jpg'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [19, 17, 15]
+    },
+
+        {
+        id: 15,
+        category: 'Electronics',
+        title: 'Smart Phone',
+        price: 90.99,
+        oldPrice: 109.00,
+        rating: 4.7,
+        orders: 350,
+        shipping: 'Free Shipping',
+        image: 'assets/1.jpg',
+        thumbnails: [
+            'assets/1.jpg',
+            'assets/1.jpg',
+            'assets/1.jpg'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [19, 17, 1]
+    },
+
+        {
+        id: 17,
+        category: 'Electronics',
+        title: 'phone',
+        price: 75.99,
+        oldPrice: 85.00,
+        rating: 4.7,
+        orders: 350,
+        shipping: 'Free Shipping',
+        image: 'assets/2.jpg',
+        thumbnails: [
+            'assets/2.jpg',
+            'assets/2.jpg',
+            'assets/2.jpg'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [19, 1, 15]
+    },
+
+        {
+        id: 19,
+        category: 'Electronics',
+        title: 'GoPro',
+        price: 80.99,
+        oldPrice: 99.99,
+        rating: 4.7,
+        orders: 350,
+        shipping: 'Free Shipping',
+        image: 'assets/camera.jpg',
+        thumbnails: [
+            'assets/camera.jpg',
+            'assets/camera.jpg',
+            'assets/camera.jpg'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [1, 17, 15]
+    },
+
+        {
+        id: 21,
+        category: 'Electronics',
+        title: 'Apple',
+        price: 120.00,
+        oldPrice: 140.00,
+        rating: 4.7,
+        orders: 350,
+        shipping: 'Free Shipping',
+        image: 'assets/4.jpg',
+        thumbnails: [
+            'assets/4.jpg',
+            'assets/4.jpg',
+            'assets/4.jpg'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [19, 17, 15]
+    }
+    ,
+
+        {
+        id: 14,
+        category: 'clothing',
+        title: 'Vallet',
+        price: 4.00,
+        oldPrice: 8.00,
+        rating: 4.1,
+        orders: 160,
+        shipping: 'Free Shipping',
+        image: 'assets/recommended-wallet.jpg',
+        thumbnails: [
+            'assets/recommended-wallet.jpg',
+            'assets/recommended-wallet.jpg',
+            'assets/recommended-wallet.jpg'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [2, 5, 8]
+    },
+
+        {
+        id: 16,
+        category: 'clothing',
+        title: 'Blue Shirt',
+        price: 52.00,
+        oldPrice: 62.00,
+        rating: 4.1,
+        orders: 160,
+        shipping: 'Free Shipping',
+        image: 'assets/9.jpg',
+        thumbnails: [
+            'assets/9.jpg',
+            'assets/9.jpg',
+            'assets/9.jpg'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [2, 5, 8]
+    },
+
+        {
+        id: 18,
+        category: 'clothing',
+        title: 'Blue Shorts',
+        price: 35.00,
+        oldPrice: 40.00,
+        rating: 4.1,
+        orders: 160,
+        shipping: 'Free Shipping',
+        image: 'assets/12.PNG',
+        thumbnails: [
+            'assets/12.PNG',
+            'assets/12.PNG',
+            'assets/12.PNG'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [2, 5, 8]
+    },
+
+     {
+        id: 20,
+        category: 'clothing',
+        title: '3 Piece Coat',
+        price: 40.00,
+        oldPrice: 50.00,
+        rating: 4.1,
+        orders: 160,
+        shipping: 'Free Shipping',
+        image: 'assets/11.PNG',
+        thumbnails: [
+            'assets/11.PNG',
+            'assets/11.PNG',
+            'assets/11.PNG'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [2, 5, 8]
+    },
+
+        {
+        id: 22,
+        category: 'clothing',
+        title: 'White Shirt',
+        price: 45.00,
+        oldPrice: 55.00,
+        rating: 4.1,
+        orders: 160,
+        shipping: 'Free Shipping',
+        image: 'assets/10.PNG',
+        thumbnails: [
+            'assets/10.PNG',
+            'assets/10.PNG',
+            'assets/10.PNG'
+        ],
+        description: 'Classic fit women\'s denim jeans, versatile for any occasion. Made from high-quality stretch denim for comfort.',
+        details: {
+            Material: '98% Cotton, 2% Spandex',
+            Fit: 'Straight Leg',
+            Waist: 'Mid-Rise',
+            Closure: 'Button and Zipper',
+            Season: 'All Seasons',
+            color: ['Blue', 'Black'],
+            size: ['26', '28', '30', '32', '34']
+        },
+        supplier: {
+            name: 'Denim Craft Co.',
+            location: 'USA, Los Angeles',
+            sales: 280,
+            shipping: 'Domestic',
+            rating: 4.4
+        },
+        related: [2, 5, 8]
+    }
+];
+
+// Function to change the main product image
+function changeMainImage(imageSrc) {
+    document.querySelector('.main-image').src = imageSrc;
+    // Optional: Update active thumbnail class
+    document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+        if (thumb.querySelector('img').src === imageSrc) {
+            thumb.classList.add('active');
+        }
+    });
+}
+
+// Function to handle tab switching
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get('id'));
+    const product = allProducts.find(p => p.id === productId);
+
+    if (product) {
+        document.title = `${product.title} - Ecommerce`;
+        document.querySelector('.product-title').textContent = product.title;
+        document.querySelector('.main-image').src = product.image;
+
+        const thumbnailImagesDiv = document.querySelector('.thumbnail-images'); // Select the existing div
+        thumbnailImagesDiv.innerHTML = ''; // Clear existing thumbnails
+
+        // Add the main image as the first active thumbnail
+        thumbnailImagesDiv.innerHTML += `<div class="thumbnail active" onclick="changeMainImage('${product.image}')"><img src="${product.image}" alt="${product.title}"></div>`;
+
+        // Loop through product.thumbnails to create other thumbnails
+        if (product.thumbnails && product.thumbnails.length > 0) {
+            product.thumbnails.forEach(thumbUrl => {
+                thumbnailImagesDiv.innerHTML += `
+                    <div class="thumbnail" onclick="changeMainImage('${thumbUrl}')">
+                        <img src="${thumbUrl}" alt="Thumbnail">
+                    </div>
+                `;
+            });
+        }
+        // You might want to handle out of stock scenarios
+        document.querySelector('.in-stock').innerHTML = `<i class="fas fa-check-circle"></i> In stock`;
+        const ratingStars = Math.round(product.rating);
+        let starsHTML = '';
+        for (let i = 0; i < ratingStars; i++) {
+            starsHTML += `<i class="fas fa-star" style="color: #ffc107;"></i>`;
+        }
+        for (let i = ratingStars; i < 5; i++) {
+            starsHTML += `<i class="far fa-star" style="color: #ffc107;"></i>`;
+        }
+        document.querySelector('.product-rating').innerHTML = `${starsHTML} <span class="rating-count">(${product.orders} orders)</span>`;
+        document.querySelector('.price-discounted').textContent = `$${product.price.toFixed(2)}`;
+        if (product.oldPrice) {
+            document.querySelector('.price-original').textContent = `$${product.oldPrice.toFixed(2)}`;
+        } else {
+            document.querySelector('.price-original').style.display = 'none';
+        }
+
+        const colorSelect = document.getElementById('color-select');
+        const sizeSelect = document.getElementById('size-select');
+        if (product.details && product.details.color) {
+            colorSelect.innerHTML = product.details.color.map(color => `<option value="${color}">${color}</option>`).join('');
+        } else {
+            colorSelect.style.display = 'none';
+            document.querySelector('label[for="color-select"]').style.display = 'none';
+        }
+        if (product.details && product.details.size) {
+            sizeSelect.innerHTML = product.details.size.map(size => `<option value="${size}">${size}</option>`).join('');
+        } else {
+            sizeSelect.style.display = 'none';
+            document.querySelector('label[for="size-select"]').style.display = 'none';
+        }
+
+        const productMetaDiv = document.querySelector('.product-info'); // Target the .product-info div
+        // Clear existing product meta before adding new ones
+        productMetaDiv.innerHTML = `
+            <h1 class="product-title">${product.title}</h1>
+            <p class="in-stock"><i class="fas fa-check-circle"></i> In stock</p>
+            <div class="product-rating">
+                ${starsHTML} <span class="rating-count">(${product.orders} orders)</span>
+            </div>
+            <div class="product-price-section">
+                <span class="price-discounted">$${product.price.toFixed(2)}</span>
+                ${product.oldPrice ? `<span class="price-original">$${product.oldPrice.toFixed(2)}</span>` : ''}
+                <span class="price-vat">$${(product.price * 0.95).toFixed(2)} incl. VAT</span>
+            </div>
+            <div class="product-options">
+                <label for="color-select" ${!product.details || !product.details.color ? 'style="display:none;"' : ''}>Color</label>
+                <select id="color-select" ${!product.details || !product.details.color ? 'style="display:none;"' : ''}>
+                    ${product.details && product.details.color ? product.details.color.map(color => `<option value="${color}">${color}</option>`).join('') : ''}
+                </select>
+                <label for="size-select" ${!product.details || !product.details.size ? 'style="display:none;"' : ''}>Size</label>
+                <select id="size-select" ${!product.details || !product.details.size ? 'style="display:none;"' : ''}>
+                    ${product.details && product.details.size ? product.details.size.map(size => `<option value="${size}">${size}</option>`).join('') : ''}
+                </select>
+            </div>
+            <button class="add-to-cart-button">Send Inquiry</button>
+        `;
+
+        // Add product meta details dynamically
+        if (product.details) {
+            for (const key in product.details) {
+                if (!['color', 'size', 'features'].includes(key)) { // Skip color and size as they have dropdowns, and features are in the description tab
+                    productMetaDiv.innerHTML += `<p class="product-meta"><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${Array.isArray(product.details[key]) ? product.details[key].join(', ') : product.details[key]}</p>`;
+                }
+            }
+        }
+
+
+        if (product.supplier) {
+            document.querySelector('.supplier-title').textContent = 'Supplier';
+            document.querySelector('.supplier-details strong').textContent = product.supplier.name;
+            document.querySelector('.supplier-details i.fa-map-marker-alt').nextSibling.textContent = ` ${product.supplier.location}`;
+            document.querySelector('.supplier-details i.fa-star').nextSibling.textContent = ` ${product.supplier.rating ? product.supplier.rating.toFixed(1) : (Math.random() * 4 + 3).toFixed(1)} stars (${product.supplier.sales}+ sales)`;
+            document.querySelector('.supplier-details i.fa-truck').nextSibling.textContent = ` ${product.supplier.shipping}`;
+        }
+
+        // Update Description Tab
+        const descriptionTabContent = document.getElementById('description');
+        descriptionTabContent.innerHTML = `<p>${product.description}</p>`;
+        const attributesList = document.createElement('ul');
+        attributesList.classList.add('product-attributes');
+
+        if (product.details) {
+            for (const key in product.details) {
+                if (!['color', 'size', 'features'].includes(key)) {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<span class="attribute-name">${key.charAt(0).toUpperCase() + key.slice(1)}</span><span class="attribute-value">${Array.isArray(product.details[key]) ? product.details[key].join(', ') : product.details[key]}</span>`;
+                    attributesList.appendChild(listItem);
+                }
+            }
+            if (attributesList.children.length > 0) {
+                descriptionTabContent.appendChild(attributesList);
+            }
+
+            const featuresList = document.createElement('ul');
+            if (product.details.features && Array.isArray(product.details.features)) {
+                product.details.features.forEach(feature => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<i class="fas fa-check-square"></i> ${feature}`;
+                    featuresList.appendChild(listItem);
+                });
+                descriptionTabContent.appendChild(featuresList);
+            }
+        }
+
+
+        // Related Products section
+        const relatedProductsGrid = document.querySelector('.related-products-grid');
+        relatedProductsGrid.innerHTML = ''; // Clear existing related products
+        if (product.related && product.related.length > 0) {
+            product.related.forEach(relatedId => {
+                const relatedProduct = allProducts.find(p => p.id === relatedId);
+                if (relatedProduct) {
+                    relatedProductsGrid.innerHTML += `
+                        <div class="related-product-card" onclick="window.location.href='product-details.html?id=${relatedProduct.id}'" style="cursor: pointer;">
+                            <img src="${relatedProduct.image}" alt="${relatedProduct.title}" class="related-product-image">
+                            <h3 class="related-product-title">${relatedProduct.title}</h3>
+                            <p class="related-product-price">$${relatedProduct.price.toFixed(2)} ${relatedProduct.oldPrice ? `- $${relatedProduct.oldPrice.toFixed(2)}` : ''}</p>
+                        </div>
+                    `;
+                }
+            });
+        } else {
+            document.querySelector('.related-products').style.display = 'none';
+        }
+
+    } // This closing brace correctly ends the main 'if (product)' block
+    else {
+        // This handles the case where the product is not found
+        document.querySelector('.product-details-container').innerHTML = '<p>Product not found.</p>';
+    }
+}); // Closes DOMContentLoaded listener
+        
+    </script>
+
+</body>
+</html>
+
+
+======================================= cart.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart - Ecommerce</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Basic CSS for the cart page - extend this in style.css */
+        .cart-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .cart-items {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .cart-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-name {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .item-options {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-actions button {
+            background: none;
+            border: none;
+            color: #007bff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .item-actions button:hover {
+            text-decoration: underline;
+        }
+
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .quantity-button {
+            background: none;
+            border: none;
+            padding: 5px 8px;
+            font-size: 0.9rem;
+            color: #555;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            padding: 5px;
+            font-size: 0.9rem;
+            color: #333;
+            outline: none;
+        }
+
+        .item-price {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: bold;
+            margin-left: auto;
+        }
+
+        .cart-summary {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .summary-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .summary-row.total {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .coupon-input-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .coupon-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 0.9rem;
+            color: #333;
+            outline: none;
+        }
+
+        .apply-coupon-button {
+            background-color: #f8f9fa;
+            color: #007bff;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 4px 4px 0;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .apply-coupon-button:hover {
+            background-color: #eee;
+        }
+
+        .checkout-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .checkout-button:hover {
+            background-color: #1e7e34;
+        }
+
+        .payment-methods {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .payment-methods img {
+            height: 20px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+
+        .cart-actions-bottom {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-to-shop-button {
+            background: none;
+            border: 1px solid #ddd;
+            color: #555;
+            border-radius: 6px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .back-to-shop-button:hover {
+            background-color: #eee;
+        }
+
+        .remove-all-button {
+            background: none;
+            border: none;
+            color: #dc3545;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .remove-all-button:hover {
+            text-decoration: underline;
+        }
+
+        .saved-for-later {
+            margin-top: 30px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .saved-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .saved-items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .saved-item {
+            text-align: center;
+        }
+
+        .saved-item-image {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .saved-item-name {
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 5px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .saved-item-price {
+            font-size: 0.95rem;
+            color: #e44d26;
+            font-weight: bold;
+        }
+
+        .move-to-cart-button {
+            background: none;
+            border: 1px solid #007bff;
+            color: #007bff;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            margin-top: 5px;
+        }
+
+        .move-to-cart-button:hover {
+            background-color: #e7f3ff;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="/" class="logo-link">
+                <img src="assets/logo.png" alt="Logo" class="logo" />
+            </a>
+
+            <nav class="menu">
+                <a href="#">
+                    <img src="assets/profile-icon.png" alt="Profile" class="nav-icon">
+                    Profile
+                </a>
+                <a href="#">
+                    <img src="assets/message-icon.png" alt="Message" class="nav-icon">
+                    Message
+                </a>
+                <a href="#">
+                    <img src="assets/heart-icon.png" alt="Orders" class="nav-icon">
+                    Orders
+                </a>
+                <a href="#">
+                    <img src="assets/cart-icon.png" alt="My Cart" class="nav-icon">
+                    My Cart
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container cart-container">
+        <div class="cart-items">
+            <h1 class="cart-title">My cart (3)</h1>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="assets/subcategory-lamp.jpg" alt="T-shirt 1">
+                </div>
+                <div class="item-details">
+                    <div class="item-name">Lamp</div>
+                    <div class="item-options">Size: medium, Color: white, Material: Plastic</div>
+                    <div class="item-actions">
+                        <button>Remove</button>
+                        <button>Save for later</button>
+                    </div>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-button">-</button>
+                    <input type="number" class="quantity-input" value="9" min="1">
+                    <button class="quantity-button">+</button>
+                </div>
+                <div class="item-price">$76.99</div>
+            </div>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="assets/recommended-jacket.jpg" alt="T-shirt 2">
+                </div>
+                <div class="item-details">
+                    <div class="item-name">Jeans</div>
+                    <div class="item-options">Size: medium, Color: blue, Material: Plastic</div>
+                    <div class="item-actions">
+                        <button>Remove</button>
+                        <button>Save for later</button>
+                    </div>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-button">-</button>
+                    <input type="number" class="quantity-input" value="3" min="1">
+                    <button class="quantity-button">+</button>
+                </div>
+                <div class="item-price">$39.00</div>
+            </div>
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="assets/deal-headphones.jpg" alt="T-shirt 3">
+                </div>
+                <div class="item-details">
+                    <div class="item-name">Gaming Set</div>
+                    <div class="item-options">Size: medium, Color: blue, Material: Plastic</div>
+                    <div class="item-actions">
+                        <button>Remove</button>
+                        <button>Save for later</button>
+                    </div>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-button">-</button>
+                    <input type="number" class="quantity-input" value="1" min="1">
+                    <button class="quantity-button">+</button>
+                </div>
+                <div class="item-price">$170.50</div>
+            </div>
+            <div class="cart-actions-bottom">
+                <button class="back-to-shop-button"><i class="fas fa-arrow-left"></i> Back to shop</button>
+                <button class="remove-all-button">Remove all</button>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <h2 class="summary-title">Have a coupon?</h2>
+            <div class="coupon-input-group">
+                <input type="text" class="coupon-input" placeholder="Enter coupon code">
+                <button class="apply-coupon-button">Apply</button>
+            </div>
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span>$1403.87</span>
+            </div>
+            <div class="summary-row">
+                <span>Discount:</span>
+                <span class="discount">-$60.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Tax:</span>
+                <span class="tax">+$14.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span>$1357.97</span>
+            </div>
+            <button class="checkout-button">Checkout</button>
+            <div class="payment-methods">
+                <img src="assets/visa.png" alt="Visa">
+                <img src="assets/mastercard.png" alt="Mastercard">
+                <img src="assets/paypal.png" alt="PayPal">
+                <img src="assets/amex.png" alt="Amex">
+                <img src="assets/discover.png" alt="ApplePay">
+            </div>
+        </div>
+    </div>
+
+    <div class="container saved-for-later">
+        <h2 class="saved-title">Saved for later</h2>
+        <div class="saved-items-grid">
+            <div class="saved-item">
+                <img src="assets/smartwatch.png" alt="Saved Item 1" class="saved-item-image">
+                <h3 class="saved-item-name">Smart Watch</h3>
+                <p class="saved-item-price">$99.50</p>
+                <button class="move-to-cart-button">Move to cart</button>
+            </div>
+            <div class="saved-item">
+                <img src="assets/wireless-earbuds.jpg" alt="Saved Item 2" class="saved-item-image">
+                <h3 class="saved-item-name">Head Phones</h3>
+                <p class="saved-item-price">$99.50</p>
+                <button class="move-to-cart-button">Move to cart</button>
+            </div>
+            <div class="saved-item">
+                <img src="assets/subcategory-chair.jpg" alt="Saved Item 3" class="saved-item-image">
+                <h3 class="saved-item-name">Sofa Chair</h3>
+                <p class="saved-item-price">$99.50</p>
+                <button class="move-to-cart-button">Move to cart</button>
+            </div>
+            <div class="saved-item">
+                <img src="assets/camera.jpg" alt="Saved Item 4" class="saved-item-image">
+                <h3 class="saved-item-name">GoPro</h3>
+                <p class="saved-item-price">$99.50</p>
+                <button class="move-to-cart-button">Move to cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #007bff; color: #fff; padding: 20px; margin-top: 30px; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h2 style="font-size: 1.2rem; margin-bottom: 10px;">Super discount on more than 100 USD</h2>
+                <p style="font-size: 0.9rem;">Have you ever finally just write dummy info</p>
+            </div>
+            <button style="background-color: #ffa500; color: #fff; border: none; border-radius: 6px; padding: 10px 20px; font-size: 1rem; cursor: pointer;">Shop now</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <div class="logo-container">
+                    <img src="assets/logo-footer.png" alt="Brand Logo" class="logo-footer" />
+                </div>
+                <p class="company-info">Best information about the company goes here but now lorem ipsum is</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><img src="assets/facebook-circular.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="assets/twitter-circular.png" alt="Twitter"></a>
+                    <a href="#" target="_blank"><img src="assets/linkedin-circular.png" alt="LinkedIn"></a>
+                    <a href="#" target="_blank"><img src="assets/instagram-circular.png" alt="Instagram"></a>
+                    <a href="#" target="_blank"><img src="assets/youtube-circular.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Money Refund</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For users</h4>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">My Orders</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-section get-app">
+                <h4>Get app</h4>
+                <a href="#" class="app-store-link"><img src="assets/app-store-badge.png" alt="Download on the App Store"></a>
+                <a href="#" class="google-play-link"><img src="assets/google-play-badge.png" alt="Get it on Google Play"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container bottom-container">
+                <p>© 2025 Ecommerce.</p>
+                <div class="language-select">
+                    <img src="assets/english-flag.png" alt="English">
+                    <span>English</span>
+                    <i class="fas fa-chevron-up"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+======================================= css:
+
+/* Top Navigation Bar (Centered) */
+.top-navigation.centered {
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center; /* Center the main content horizontally */
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9em;
+}
+
+.top-navigation.centered .nav-items {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-navigation.centered .right-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Rest of the CSS for individual elements remains the same */
+.top-navigation.centered .nav-items button.category-menu {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 15px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.top-navigation.centered .nav-items button.category-menu:hover {
+  background-color: #f8f9fa;
+}
+
+.top-navigation.centered .nav-items button.category-menu i {
+  font-size: 1.1em;
+}
+
+.top-navigation.centered .nav-items a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.top-navigation.centered .nav-items a:hover {
+  background-color: #f8f9fa;
+}
+
+.top-navigation.centered .nav-items .dropdown {
+  position: relative;
+}
+
+.top-navigation.centered .nav-items .dropdown-toggle {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.top-navigation.centered .nav-items .dropdown-toggle:hover {
+  background-color: #f8f9fa;
+}
+
+.top-navigation.centered .nav-items .dropdown-toggle i {
+  font-size: 0.8em;
+}
+
+.top-navigation.centered .nav-items .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  display: none; /* Initially hidden */
+  z-index: 10;
+}
+
+.top-navigation.centered .nav-items .dropdown:hover .dropdown-menu {
+  display: block; /* Show on hover */
+}
+
+.top-navigation.centered .nav-items .dropdown-menu a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.top-navigation.centered .nav-items .dropdown-menu a:hover {
+  background-color: #f8f9fa;
+}
+
+.top-navigation.centered .right-actions .language-currency,
+.top-navigation.centered .right-actions .ship-to {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.top-navigation.centered .right-actions .language-currency:hover,
+.top-navigation.centered .right-actions .ship-to:hover {
+  background-color: #f8f9fa;
+}
+
+.top-navigation.centered .right-actions .language-currency i,
+.top-navigation.centered .right-actions .ship-to i {
+  font-size: 0.8em;
+}
+
+.top-navigation.centered .right-actions .ship-to img {
+  width: 50px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+
+/* Main Hero Section */
+.main-hero {
+  padding: 20px 0; /* Adjust vertical padding of the section as needed */
+  background-color: white; /* Optional background for the whole section */
+}
+
+.container-hero {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px; /* Adjust the maximum width of the inner content */
+  margin: 0 auto; /* Center the inner container */
+  padding: 40px 20px; /* Keep inner padding if desired */
+  background-color: #fff; /* Keep the white background */
+  border-radius: 8px; /* Optional rounded corners for the inner container */
+  overflow: hidden; /* To contain floated elements or rounded corners */
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 0.8; /* Adjust flex-grow to control width relative to other sections */
+  max-width: 180px; /* Adjust maximum width as needed */
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.category-list li a {
+  display: block;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-size: 0.9em; /* Adjust font size if needed */
+}
+
+.category-list li a:hover {
+  background-color: #f2f2f2;
+}
+
+/* Hero Banner */
+.hero-banner {
+  flex: 2;
+  position: relative; /* To allow absolute positioning of other elements if needed later */
+  background-image: url('../assets/images/headphones.png'); /* Set the background image */
+  background-size: cover; /* Scale the image to cover the entire banner */
+  background-position: center; /* Center the image within the banner */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  border-radius: 10px;
+  padding: 30px;
+  display: flex; /* Use flexbox for overlaying content */
+  align-items: center; /* Vertically align content */
+  justify-content: flex-start; /* Align text to the start (left) */
+  color: white; /* Set default text color to white for better contrast */
+}
+
+.hero-content {
+  flex: 1; /* Allow text content to take up available space */
+  margin-right: 20px; /* Add some spacing between text and image */
+}
+
+.hero-content h2 {
+  font-size: 24px;
+  color: #222;
+  margin-bottom: 10px;
+  line-height: 1.2; /* Improve readability of multi-line text */
+}
+
+.btn-learn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+  /* Add some margin to separate button from text if needed */
+  margin-top: 15px;
+}
+
+
+/* Right Side Panel */
+.right-panel {
+  flex: 0.8; /* Adjust flex-grow to control width */
+  max-width: 180px; /* Adjust maximum width as needed */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.user-box,
+.coupon-box,
+.quote-box {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 0.85em; /* Adjust font size */
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 0.85em;
+}
+
+.btn-primary1 {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 2px 2px;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 0.85em;
+}
+
+.btn-outline {
+  background-color: white;
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 0.85em;
+}
+
+.hero-image {
+  max-width: 50px;
+  height: auto;
+}
+
+/* Right Side Panel */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.user-box{  background: lightblue;
+  padding: 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;}
+
+.coupon-box{  background: orange;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;}
+.quote-box {
+  background: cornflowerblue;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.btn-outline {
+  background-color: white;
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* Example blue for links - REPLACE WITH FIGMA */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Example darker blue for link hover - REPLACE WITH FIGMA */
+}
+
+.button {
+    display: inline-block;
+    background-color: #007bff; /* Example blue for buttons - REPLACE WITH FIGMA */
+    color: #fff; /* REPLACE WITH FIGMA */
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Example darker blue for button hover - REPLACE WITH FIGMA */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    max-width: 600px; /* Adjust as needed */
+}
+
+.search-bar {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px; /* Rounded left corners */
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    margin-right: 5px; /* Add some spacing between input and dropdown */
+}
+
+.search-bar::placeholder {
+    color: #999;
+}
+
+.category-dropdown {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.search-button {
+    background-color: #007bff; /* Example blue */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 4px 4px 0; /* Rounded right corners */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* HEADER */
+.site-header {
+    background-color: #fff; /* REPLACE WITH FIGMA */
+    padding: 20px 0; /* Adjust based on Figma */
+    border-bottom: 1px solid #eee; /* Adjust based on Figma */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Adjust based on Figma */
+    flex-wrap: wrap;
+}
+
+.logo-link {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.logo {
+    height: 80px; /* Increased logo size - ADJUST BASED ON FIGMA */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.search-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+}
+
+.search-bar {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc; /* Adjust based on Figma */
+    border-radius: 4px; /* Adjust based on Figma */
+    font-size: 16px;
+    font-family: 'Inter', sans-serif; /* Ensure this matches Figma */
+    color: #333; /* Adjust based on Figma */
+}
+
+.search-bar::placeholder {
+    color: #999; /* Adjust based on Figma */
+}
+
+.menu {
+    display: flex;
+    gap: 30px; /* Adjust based on Figma */
+    align-items: center;
+}
+
+.menu a {
+     display: flex; /* Keep using flex to potentially arrange other elements later */
+    flex-direction: column; /* Stack the icon and text vertically */
+    align-items: center; /* Center the icon and text horizontally */
+    gap: 4px; /* Adjust vertical space between icon and text */
+    font-weight: 500;
+    color: #333;
+    text-align: center; /* Center the text within the link */}
+
+.menu a:hover {
+    color: #007bff; /* Adjust based on Figma */
+}
+.nav-icon {
+    height: 40px; /* Adjust the size as needed */
+    width: 40px; /* Adjust the size as needed */
+     /* Ensure the icon aligns vertically with the text */
+}
+/* MAIN CONTENT */
+.site-main {
+    padding: 40px 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 0;
+    background-color: #e0f7fa; /* Example light blue background - REPLACE WITH FIGMA */
+    border-radius: 8px; /* Adjust based on Figma */
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 2.5em; /* Adjust based on Figma */
+    margin-bottom: 20px;
+    color: #333; /* Adjust based on Figma */
+}
+
+.hero p {
+    font-size: 1.1em; /* Adjust based on Figma */
+    color: #666; /* Adjust based on Figma */
+    margin-bottom: 30px;
+}
+
+.hero .button {
+    margin-top: 20px;
+}
+
+.featured-products {
+    margin-bottom: 40px;
+}
+
+.featured-products h2 {
+    font-size: 2em; /* Adjust based on Figma */
+    margin-bottom: 25px;
+    color: #007bff; /* Example blue for heading - REPLACE WITH FIGMA */
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff; /* REPLACE WITH FIGMA */
+    border: 1px solid #ddd; /* Adjust based on Figma */
+    border-radius: 8px; /* Adjust based on Figma */
+    padding: 20px; /* Adjust based on Figma */
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 4px; /* Adjust based on Figma */
+    object-fit: cover;
+    height: 200px; /* Example fixed height - adjust based on Figma */
+}
+
+.product-card h3 {
+    font-size: 1.2em; /* Adjust based on Figma */
+    margin-bottom: 10px;
+    color: #333; /* Adjust based on Figma */
+}
+
+.product-card .price {
+    font-size: 1.1em; /* Adjust based on Figma */
+    color: #007bff; /* Example blue for price - REPLACE WITH FIGMA */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-card .button {
+    margin-top: 10px;
+    font-size: 0.9em;
+    padding: 10px 15px;
+}
+
+/* Style for the product categories section */
+.product-categories {
+    margin-bottom: 40px;
+}
+
+.product-categories h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #007bff;
+    text-align: center;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax width */
+    gap: 20px;
+}
+
+.category-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.category-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    object-fit: cover;
+    height: 150px; /* Adjust image height */
+}
+
+.category-card h3 {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.category-card .discount,
+.category-card .price {
+    color: #d9534f; /* Example color for discount/price */
+    font-weight: bold;
+}
+
+.category-card.home-outdoor {
+    text-align: left; /* Align text in the main category card */
+}
+
+.category-card.home-outdoor h3 {
+    margin-bottom: 10px;
+}
+
+.category-card.home-outdoor .source-now {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.category-card.home-outdoor .subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.category-card.home-outdoor .subcategory-item {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.category-card.home-outdoor .subcategory-item h4 {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.category-card.home-outdoor .subcategory-item img {
+    height: 80px; /* Adjust subcategory image height */
+}
+
+.category-card.home-outdoor .subcategory-item p {
+    font-size: 0.85em;
+    color: #777;
+}
+/* Updated Deals and Offers Grid */
+.deals-header-combined {
+    text-align: left; /* Align text to the left within this item */
+    margin-right: 20px; /* Add some spacing between the header and the first product */
+    flex-shrink: 0; /* Don't shrink the header */
+    width: auto; /* Adjust width as needed */
+}
+
+.deals-header-combined h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.deals-header-combined .hygiene-equipments {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.deals-header-combined .countdown {
+    display: flex;
+    gap: 10px;
+}
+
+.deals-header-combined .countdown-item {
+    background-color: #ddd;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.deals-header-combined .countdown-item .label {
+    display: block;
+    font-size: 0.7em;
+    font-weight: normal;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Ensure the deals-grid is still a flex container (you might already have this) */
+.deals-grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Adjust as needed */
+    gap: 15px;
+    overflow-x: auto;
+    padding: 20px; /* Adjust padding as needed */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+/* Keep the styling for .deal-item as before */
+.deal-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    flex-shrink: 0;
+    width: auto;
+}
+
+.deal-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    object-fit: contain;
+    height: 100px; /* Adjust as needed */
+}
+
+.deal-item h3 {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.deal-item .discount {
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/*homeeeeeeeeeeeeeeeeeeeeeeeeeeee*/
+
+
+.combined-section {
+    margin-bottom: 40px; /* Adjust as needed */
+}
+
+/* New style for the full-width section */
+.full-width-section {
+    width: 100%; /* Make it span the entire viewport width */
+    background-color: #f9f9f9; /* Match the background color */
+    padding: 20px 0; /* Add vertical padding to match the inner section */
+    margin-bottom: 40px; /* Keep the bottom margin */
+}
+
+/* Container to hold the inner content, matching the header's container */
+.combined-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.combined-layout {
+    display: flex;
+    gap: 20px; /* Spacing between the Home & Outdoor block and the product grid */
+    align-items: flex-start; /* Align items to the top */
+    /* Remove the background, border, and border-radius from here */
+}
+
+.home-outdoor-block {
+    flex: 1; /* Takes up available space on the left */
+    /* Remove background-color */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: left;
+    /* Add background image */
+    background-image: url('../assets/images/home-outdoor-banner.jpg'); /* REPLACE THIS PATH */
+    background-size: cover; /* Scale the image to cover the entire block */
+    background-position: center; /* Center the image within the block */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: white; /* Set text color to white for better contrast against the image */
+    display: flex; /* Use flexbox to arrange text content */
+    flex-direction: column; /* Stack text elements vertically */
+    justify-content: flex-end; /* Push text content to the bottom */
+    padding-bottom: 280px; /* Add some padding at the bottom for text */
+}
+.Consumer-electronics-and-gadgets{    flex: 1; /* Takes up available space on the left */
+    /* Remove background-color */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: left;
+    /* Add background image */
+    background-image: url('../assets/images/image 102.jpg'); /* REPLACE THIS PATH */
+    background-size: cover; /* Scale the image to cover the entire block */
+    background-position: center; /* Center the image within the block */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: white; /* Set text color to white for better contrast against the image */
+    display: flex; /* Use flexbox to arrange text content */
+    flex-direction: column; /* Stack text elements vertically */
+    justify-content: flex-end; /* Push text content to the bottom */
+    padding-bottom: 280px; /* Add some padding at the bottom for text */}
+.home-outdoor-block h3,
+.home-outdoor-block .source-now {
+    color: white; /* Ensure text within is white */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Optional: add a text shadow for better readability */
+}
+
+.home-outdoor-block img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    object-fit: cover; /* Or contain, depending on your image */
+    max-height: 150px; /* Adjust as needed */
+    
+}
+
+.home-outdoor-block h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.home-outdoor-block .source-now {
+    display: inline-block;
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.Consumer-electronics-and-gadgets .source-now{
+        display: inline-block;
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.product-grid-adjacent {
+    flex: 2; /* Takes up more space on the right for the 2x2 grid */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates two columns */
+    grid-row-gap: 15px;
+    column-gap: 15px;
+}
+
+.product-grid-adjacent .product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0px;
+    text-align: center;
+}
+
+.product-grid-adjacent .product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    object-fit: contain;
+    max-height: 100px; /* Adjust as needed */
+}
+
+.product-grid-adjacent .product-card h3 {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-grid-adjacent .product-card .price {
+    color: #777;
+    font-size: 0.9em;
+}
+
+
+/* New Hero Section Styles */
+.new-hero {
+  padding: 40px 0; /* Adjust vertical padding as needed */
+  background-color: #f0f8ff; /* Optional background color for the entire section */
+}
+
+.new-hero-container {
+  display: flex;
+  justify-content: space-between; /* Distribute space between left and right blocks */
+  align-items: center; /* Vertically align the content */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #e0f7fa; /* Optional background for the container */
+}
+
+.hero-left-content {
+  flex: 1; /* Takes up available space on the left */
+  color: #333;
+  padding-right: 30px; /* Add some spacing between text and form */
+}
+
+.hero-left-content h2 {
+  font-size: 2em; /* Adjust as needed */
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+.hero-left-content p {
+  font-size: 1em; /* Adjust as needed */
+  color: #666;
+  line-height: 1.6;
+}
+
+.hero-right-form {
+  width: 400px; /* Adjust the width of the form block */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.hero-right-form h3 {
+  font-size: 1.3em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.hero-right-form .input-group {
+  margin-bottom: 15px;
+}
+
+.hero-right-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.hero-right-form input[type="text"],
+.hero-right-form textarea,
+.hero-right-form input[type="number"],
+.hero-right-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+.hero-right-form textarea {
+  min-height: 80px;
+}
+
+.hero-right-form .quantity-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.hero-right-form .quantity-group .input-group.quantity {
+  flex: 1;
+}
+
+.hero-right-form .quantity-group .select-group {
+  flex: 1;
+}
+
+.hero-right-form .select-group label {
+  display: none; /* Hide the label for the select as it's implied */
+}
+
+.hero-right-form .button.send-inquiry {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  font-size: 1em;
+  text-align: center;
+}
+
+/* Recommended Items Section */
+.recommended-items {
+  padding: 40px 0;
+}
+
+.recommended-items .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.recommended-items h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: left; /* Align heading to the left */
+}
+
+.recommended-items .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
+  gap: 20px;
+}
+
+.recommended-items .product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: left; /* Align content within the card to the left */
+}
+
+.recommended-items .product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  object-fit: cover;
+  height: 150px; /* Adjust image height as needed */
+}
+
+.recommended-items .product-card .price {
+  color: #007bff; /* Example price color */
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+
+.recommended-items .product-card h3 {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+
+/* Extra Services Section */
+.extra-services {
+  padding: 40px 0;
+  background-color: #f9f9f9; /* Optional background color */
+}
+
+.extra-services .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.extra-services h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.extra-services .services-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  padding-bottom: 20px; /* Add some padding for scrollbar */
+}
+
+.extra-services .service-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  min-width: 250px; /* Minimum width for each card */
+  text-align: left;
+}
+
+.extra-services .service-card .image-container {
+  position: relative;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.extra-services .service-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 150px; /* Adjust as needed */
+}
+
+.extra-services .service-card .icon-overlay {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #e0f7fa; /* Light blue background for icon */
+  color: #007bff; /* Blue icon color */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  
+  
+}
+
+.extra-services .service-card h3 {
+  font-size: 1.1em;
+  color: #333;
+  padding: 15px;
+  margin-bottom: 0;
+}
+/* Suppliers by Region Section with 5 Columns */
+.suppliers-by-region {
+  padding: 40px 0;
+}
+
+.suppliers-by-region .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.suppliers-by-region h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.suppliers-by-region .region-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid; /* Change to CSS Grid */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax for desired width */
+  gap: 15px; /* Adjust gap as needed */
+}
+
+.suppliers-by-region .region-list li {
+  display: flex;
+  flex-direction: column; /* Stack flag, name, and domain vertically */
+  align-items: center; /* Center items horizontally */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px; /* Adjust padding */
+  font-size: 0.85em; /* Adjust font size */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  text-align: center; /* Center text */
+}
+
+.suppliers-by-region .region-list li img {
+  width: 40px; /* Adjust flag size */
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 5px; /* Add space below flag */
+}
+
+.suppliers-by-region .region-list li span {
+  color: #333;
+  display: block; /* Make spans take full width for centering */
+  margin-bottom: 3px; /* Add space below region name */
+}
+
+.suppliers-by-region .region-list li .domain {
+  color: #777;
+  font-size: 0.8em;
+}
+
+/* Newsletter Subscription Section */
+.newsletter-subscription {
+  padding: 60px 0;
+  background-color: #f8f9fa; /* Light grey background */
+  text-align: center;
+}
+
+.newsletter-subscription .container {
+  width: 90%;
+  max-width: 768px; /* Adjust max width as needed */
+  margin: 0 auto;
+}
+
+.newsletter-subscription h2 {
+  font-size: 1.8em; /* Adjust as needed */
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.newsletter-subscription p {
+  color: #6c757d; /* Greyish text */
+  margin-bottom: 30px;
+  font-size: 0.95em;
+}
+
+.newsletter-subscription .subscription-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 500px; /* Adjust form width */
+  margin: 0 auto;
+}
+
+.newsletter-subscription .input-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  padding: 8px 12px;
+  flex-grow: 1;
+}
+
+.newsletter-subscription .input-wrapper i {
+  margin-right: 8px;
+  color: #6c757d;
+  font-size: 1em;
+}
+
+.newsletter-subscription .input-wrapper input[type="email"] {
+  border: none;
+  padding: 8px 0;
+  font-size: 1em;
+  color: #495057;
+  flex-grow: 1;
+}
+
+.newsletter-subscription .input-wrapper input[type="email"]:focus {
+  outline: none;
+}
+
+.newsletter-subscription .subscribe-button {
+  background-color: #007bff; /* Blue subscribe button */
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-subscription .subscribe-button:hover {
+  background-color: #0056b3;
+}
+
+/* FOOTER */
+/* FOOTER */
+.site-footer {
+  background-color: white; /* Adjust from Figma */
+  padding-top: 40px; /* Adjust from Figma */
+  padding-bottom: 20px; /* Adjust from Figma */
+  border-top: 1px solid #eee; /* Adjust based on Figma */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 20px 30px 20px; /* Add left and right padding, adjust top/bottom */
+  max-width: 1200px; /* Optional: Limit the width of the content */
+  margin: 0 auto; /* Center the content if max-width is set */
+}
+
+.footer-about {
+  flex: 1 1 300px; /* Adjust width as needed */
+  margin-right: auto; /* Push link columns to the right */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust from Figma */
+  margin-bottom: 15px; /* Adjust from Figma */
+}
+
+.logo-footer {
+  height: 30px; /* Adjust from Figma */
+  width: auto;
+}
+
+.brand-name-footer {
+  font-size: 1.5em; /* Adjust from Figma */
+  font-weight: bold; /* Adjust from Figma */
+  color: #333; /* Adjust from Figma */
+}
+
+.company-info {
+  color: #777; /* Adjust from Figma */
+  font-size: 0.9em; /* Adjust from Figma */
+  line-height: 1.5; /* Adjust from Figma */
+  margin-bottom: 20px; /* Adjust from Figma */
+}
+
+.social-links {
+  display: flex;
+  gap: 10px; /* Adjust from Figma */
+}
+
+.social-links a {
+  display: inline-block;
+}
+
+.social-links img {
+  height: 24px; /* Example smaller size - ADJUST BASED ON FIGMA */
+  width: 24px; /* Make width equal to height for a square - ADJUST BASED ON FIGMA */
+  object-fit: contain; /* Ensures the image fits within the bounds */
+  border-radius: 50%; /* Optional */
+  background-color: #ddd; /* Optional */
+  padding: 3px; /* Adjust padding for the smaller size */
+}
+
+.footer-links {
+  display: flex;
+  gap: 40px; /* Adjust the horizontal space between link columns */
+}
+
+.footer-section {
+  flex-basis: auto;
+}
+
+.footer-section h4 {
+  font-size: 1.1em; /* Adjust from Figma */
+  color: #333; /* Adjust from Figma */
+  margin-bottom: 10px; /* Adjust from Figma */
+  font-weight: bold; /* Adjust from Figma */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0px; /* Adjust spacing between links */
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #555; /* Adjust from Figma */
+  font-size: 0.9em; /* Adjust from Figma */
+}
+
+.get-app {
+  margin-left: 40px; /* Add space before the Get app column */
+}
+
+.get-app h4 {
+  /* Inherits styles from other h4, adjust if needed */
+}
+
+.app-store-link, .google-play-link {
+  display: block;
+  margin-bottom: 10px; /* Adjust spacing */
+}
+
+.app-store-link img, .google-play-link img {
+  height: 35px; /* Example smaller height - ADJUST BASED ON FIGMA */
+  width: auto; /* Maintain aspect ratio */
+}
+
+.footer-bottom {
+  background-color: #e9e9e9; /* Adjust from Figma */
+  padding: 15px 20px; /* Add left and right padding */
+  border-top: 1px solid #ddd; /* Adjust from Figma */
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Optional: Limit the width of the content */
+  margin: 0 auto; /* Center the content if max-width is set */
+}
+
+.bottom-container p {
+  color: #777; /* Adjust from Figma */
+  font-size: 0.85em; /* Adjust from Figma */
+  margin: 0;
+}
+
+.language-select {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjust spacing */
+  cursor: pointer;
+}
+
+.language-select img {
+  height: 20px; /* Adjust size */
+  width: auto;
+  vertical-align: middle;
+}
+
+.language-select span {
+  color: #555; /* Adjust from Figma */
+  font-size: 0.9em; /* Adjust from Figma */
+}
+
+.language-select i.icon-dropdown { /* Style for dropdown arrow */
+  font-size: 0.7em; /* Adjust size */
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .footer-links {
+    gap: 20px; /* Adjust gap for smaller screens */
+  }
+
+  .get-app {
+    margin-left: 0; /* Remove left margin on smaller screens */
+  }
+
+  .bottom-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+}
